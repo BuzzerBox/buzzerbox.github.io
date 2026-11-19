@@ -1,0 +1,46 @@
+---
+layout: default
+title: Use cases
+permalink: /use-cases/
+description: Where the BuzzerBox is used, from quiz nights to classrooms.
+---
+<section class="hero" style="padding-bottom:24px">
+  <div class="container">
+    <p class="eyebrow">Use cases</p>
+    <h1>Wherever people <em>race to answer.</em></h1>
+    <p>The BuzzerBox needs a power socket and a TV, nothing else. No accounts, no app to install, no internet.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px" id="in-action">
+  <div class="container">
+    <p class="eyebrow">In action</p>
+    <h2>Who's first?</h2>
+    <div class="mosaic" style="margin-top:24px">
+      {% for g in site.data.gallery %}
+      <figure><img src="{{ g.src | relative_url }}" alt="{{ g.alt }}"{% if g.position %} style="object-position: {{ g.position }}"{% endif %} loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"></figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Ideas</p>
+    <h2>Where it fits</h2>
+    <div class="grid">
+      {% for u in site.data.use_cases %}
+      <div class="card">{% include icon.html name=u.icon %}<h3>{{ u.title }}</h3><p>{{ u.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section cta">
+  <div class="container">
+    <h2>Plan your first game</h2>
+    <p class="sub" style="margin-inline:auto">Learn how to write a game with media, and how to host it on the night.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/docs/user/creating-games.html' | relative_url }}">Creating games</a>
+      <a class="btn btn-ghost" href="{{ '/docs/user/hosting-a-game.html' | relative_url }}">Hosting a game</a>
+    </div>
+  </div>
+</section>

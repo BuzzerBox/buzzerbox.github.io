@@ -1,0 +1,16 @@
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="" width="36" height="36">
+      <span>BuzzerBox</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      {% assign path = page.url %}
+      <a href="{{ '/hardware/' | relative_url }}"{% if path == '/hardware/' %} aria-current="page"{% endif %}>Hardware</a>
+      <a href="{{ '/use-cases/' | relative_url }}"{% if path == '/use-cases/' %} aria-current="page"{% endif %}>Use cases</a>
+      <a href="{{ '/docs/' | relative_url }}"{% if path contains '/docs/' %} aria-current="page"{% endif %}>Docs</a>
+      <a href="https://github.com/BuzzerBox" class="nav-gh">GitHub</a>
+    </nav>
+  </div>
+</header>

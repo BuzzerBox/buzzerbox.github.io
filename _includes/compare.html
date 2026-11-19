@@ -1,0 +1,12 @@
+{%- comment -%} A comparison table. rows: [[label, a, b], ...], a / b: column titles. {%- endcomment -%}
+<div class="table-wrap">
+  <table class="compare">
+    <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">{{ include.a }}</th><th scope="col">{{ include.b }}</th></tr></thead>
+    <tbody>
+      {% for r in include.rows %}
+      {% assign c1 = r[1] %}{% assign c2 = r[2] %}
+      <tr><th scope="row">{{ r[0] }}</th><td>{% include text.html t=c1 %}</td><td>{% include text.html t=c2 %}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

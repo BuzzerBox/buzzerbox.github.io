@@ -1,0 +1,25 @@
+{%- comment -%}
+  A product card. The thumbnail strip is always there (empty without extra photos), so that a row of cards can
+  reserve the same space for it (.media-thumbs in site.css) and their titles line up.
+{%- endcomment -%}
+{%- assign p = include.p -%}
+<article class="card product" id="{{ p.id }}">
+  {% if p.images and p.images.size > 0 %}
+  <img class="product-img{% if p.images[0].fit %} {{ p.images[0].fit }}{% endif %}" src="{{ p.images[0].src | relative_url }}" alt="{{ p.images[0].alt }}" data-main>
+  {% else %}
+  <div class="product-img placeholder" role="img" aria-label="Photo of the {{ p.name }} still to come">
+    {% include icon.html name=include.icon %}<span>{% if p.status %}{{ p.status }}{% else %}Photo coming soon{% endif %}</span>
+  </div>
+  {% endif %}
+  <div class="thumbs"{% if p.images.size > 1 %} role="group" aria-label="Photos of the {{ p.name }}"{% endif %}>
+    {% if p.images.size > 1 %}{% for i in p.images %}
+    <button type="button" class="thumb" data-src="{{ i.src | relative_url }}" data-alt="{{ i.alt }}" data-fit="{{ i.fit }}"{% if forloop.first %} aria-pressed="true"{% else %} aria-pressed="false"{% endif %}>
+      <img src="{{ i.src | relative_url }}" alt="" loading="lazy">
+      <span class="visually-hidden">Show: {{ i.alt }}</span>
+    </button>
+    {% endfor %}{% endif %}
+  </div>
+  <h3>{{ p.name }}{% if p.status %} <span class="badge">{{ p.status }}</span>{% endif %}</h3>
+  <p class="tagline">{{ p.tagline }}</p>
+  {% if p.points %}<ul>{% for x in p.points %}<li>{% include text.html t=x %}</li>{% endfor %}</ul>{% endif %}
+</article>

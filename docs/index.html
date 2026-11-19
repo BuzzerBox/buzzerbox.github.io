@@ -1,0 +1,32 @@
+---
+layout: default
+title: Documentation
+description: The BuzzerBox documentation for hosts, developers and hardware builders.
+---
+<section class="hero" style="padding-bottom:24px">
+  <div class="container">
+    <p class="eyebrow">Documentation</p>
+    <h1>Docs</h1>
+    <p>Pick the guide for what you want to do. The docs come straight from the
+      <a href="{{ site.repos.ui }}">BuzzUI</a> and <a href="{{ site.repos.controller }}">BuzzController</a> repositories.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="grid">
+      {% assign icons = "book,code,chip" | split: "," %}
+      {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzUI on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the controller board and its firmware, the wireless buzzers and their protocols." | split: "|" %}
+      {% for s in site.data.docs_nav %}
+      {% assign icon = icons[forloop.index0] %}
+      <div class="card">
+        {% include icon.html name=icon %}
+        <h3>{{ s.title }}</h3>
+        <p>{{ blurbs[forloop.index0] }}</p>
+        <ul style="margin:14px 0 0;padding-left:1.1em">
+          {% for p in s.pages %}<li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

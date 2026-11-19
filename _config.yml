@@ -1,1 +1,35 @@
-theme: jekyll-theme-slate
+title: BuzzerBox
+tagline: A quiz show in a box
+description: >-
+  BuzzerBox is a quiz-show buzzer system: a box that teams plug their buzzers into, a TV that shows the questions and
+  scores, and a phone that runs the game. It brings its own WiFi and needs no internet.
+url: https://buzzerbox.github.io
+baseurl: ""
+lang: en
+
+repos:
+  ui: https://github.com/BuzzerBox/BuzzUI
+  controller: https://github.com/BuzzerBox/BuzzController
+  site: https://github.com/BuzzerBox/buzzerbox.github.io
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope: { path: "" }
+    values: { layout: page }
+
+exclude:
+  - _sources/
+  - scripts/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
+  - README.md
