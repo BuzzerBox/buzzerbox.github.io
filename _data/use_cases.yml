@@ -1,0 +1,37 @@
+# The use cases on /use-cases/. icon: one of the names in _includes/icon.html.
+
+- title: Quiz nights
+  icon: mic
+  text: >-
+    Run a pub or club quiz like a TV show: teams buzz in, the TV shows the question and the scores, and you grade
+    from your phone while you walk around the room.
+
+- title: Parties and family gatherings
+  icon: party
+  text: >-
+    Birthdays, weddings, New Year's Eve. Write a quiz about the guest of honor with your own photos, songs and
+    videos. There's nothing to install and no internet to find.
+
+- title: Schools and youth groups
+  icon: school
+  text: >-
+    Revise for a test as a game show. The box brings its own WiFi, so it works in any classroom, and a quiz can be
+    copied from one box to another.
+
+- title: Company and team events
+  icon: team
+  text: >-
+    Team building, onboarding quizzes, the summer party. Buzzers, scores and a podium on the big screen, set up in
+    a few minutes.
+
+- title: Music, film and theme quizzes
+  icon: music
+  text: >-
+    Questions can carry images, audio and video: play a song and buzz the artist, show a still and buzz the film,
+    or reveal clues one after another.
+
+- title: Associations and fairs
+  icon: star
+  text: >-
+    A booth game at a fair or a club anniversary. The wireless buzzers can be handed out across the room, and the
+    box's buzzers stand up to a lot of pressing.

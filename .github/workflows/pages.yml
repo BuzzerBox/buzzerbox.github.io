@@ -1,0 +1,64 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+  # Pick up doc changes in BuzzUI and BuzzController: daily, by hand, or when one of them sends a
+  # repository_dispatch of type "docs-updated" (see README.md).
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [docs-updated]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: BuzzerBox/BuzzUI
+          path: _sources/BuzzUI
+      - uses: actions/checkout@v4
+        with:
+          repository: BuzzerBox/BuzzController
+          path: _sources/BuzzController
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Sync the docs
+        run: ruby scripts/sync-docs.rb _sources/BuzzUI _sources/BuzzController
+
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - name: Build
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+
+      - uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

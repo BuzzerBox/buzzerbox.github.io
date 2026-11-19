@@ -1,0 +1,8 @@
+# Photos of the "In action" section on /use-cases/. One photo spans the full width, two sit side by side,
+# and with more the first one is shown large. position: optional, which part stays in view when cropped.
+# Add photos to assets/img/action/ (about 1600 px wide, without metadata) and list them here.
+- src: /assets/img/action/race-to-buzz.jpg
+  alt: Several players reaching for the buzzers at an outdoor table, one hand pressing first
+- src: /assets/img/action/buzzer-glow.jpg
+  alt: A buzzer glowing red after being pressed, at an evening quiz in a living room
+  position: 70% 50%

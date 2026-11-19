@@ -1,0 +1,79 @@
+---
+layout: default
+title: Hardware
+permalink: /hardware/
+description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wireless and Pro, compared.
+---
+{% assign hw = site.data.hardware %}
+<section class="hero" style="padding-bottom:16px">
+  <div class="container">
+    <p class="eyebrow">Hardware</p>
+    <h1>Pick your box, <em>pick your buzzers.</em></h1>
+    <p>Two boxes and two kinds of buzzers. All of them run the same BuzzerBox software, bring their own WiFi and need
+      no internet.</p>
+    <nav class="pills" aria-label="On this page">
+      <a href="#boxes">Boxes</a><a href="#buzzers">Buzzers</a><a href="#build">Build your own</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="boxes">
+  <div class="container">
+    <p class="eyebrow">The boxes</p>
+    <h2>Compact, Classic or Pro</h2>
+    <p class="sub">The box runs the game: it opens the WiFi, holds the game, and shows it on the screen.</p>
+    <div class="grid media-thumbs">
+      {% for b in hw.boxes %}{% include product.html p=b icon="tv" %}{% endfor %}
+    </div>
+    <h3 class="compare-title">Compared</h3>
+    {% assign a = hw.boxes[0].name %}{% assign b = hw.boxes[1].name %}
+    {% include compare.html rows=hw.box_comparison a=a b=b %}
+  </div>
+</section>
+
+<section class="section section-alt" id="buzzers">
+  <div class="container">
+    <p class="eyebrow">The buzzers</p>
+    <h2>Analog, Wireless or Pro</h2>
+    <p class="sub">Whatever kind you use, the first press locks out everyone else and the game master grades the answer.</p>
+    <div class="grid media-square">
+      {% for b in hw.buzzers %}{% include product.html p=b icon="buzzer" %}{% endfor %}
+    </div>
+    <h3 class="compare-title">Compared</h3>
+    {% assign a = hw.buzzers[0].name %}{% assign b = hw.buzzers[1].name %}
+    {% include compare.html rows=hw.buzzer_comparison a=a b=b %}
+    {% if hw.buzzer_note %}<p class="note">{{ hw.buzzer_note }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section" id="build">
+  <div class="container">
+    <p class="eyebrow">Build your own</p>
+    <h2>Open hardware</h2>
+    <p class="sub">Schematics and boards in EAGLE and KiCad and the panel in Fusion 360, under the CERN Open Hardware
+      Licence (CERN-OHL-S-2.0), and all firmware, under GPL-3.0, are in the
+      <a href="{{ site.repos.controller }}">BuzzController</a> repository.</p>
+    <div class="grid">
+      <a class="card" href="{{ '/docs/hardware/controller.html' | relative_url }}">{% include icon.html name="chip" %}<h3>Controller firmware</h3>
+        <p>The serial protocol, building and flashing with PlatformIO and an AVR ISP programmer.</p></a>
+      <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
+        <p>How it behaves, its lights, the UDP protocol, and flashing a Feather V2 or ESP32-S3.</p></a>
+      <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}">{% include icon.html name="code" %}<h3>Provisioning a box</h3>
+        <p>Building the Raspberry Pi image, flashing it, and box settings such as <code>ANALOG_BUZZERS</code>.</p></a>
+      <a class="card" href="{{ site.repos.controller }}/tree/main/cad">{% include icon.html name="edit" %}<h3>CAD files</h3>
+        <p>Schematics and boards in EAGLE and KiCad, and the Fusion 360 panel, on GitHub.</p></a>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.product').forEach(function (card) {
+    var main = card.querySelector('[data-main]');
+    card.querySelectorAll('.thumb').forEach(function (t) {
+      t.addEventListener('click', function () {
+        main.src = t.dataset.src; main.alt = t.dataset.alt; main.classList.toggle('contain', t.dataset.fit === 'contain'); main.classList.toggle('square', t.dataset.fit === 'square');
+        card.querySelectorAll('.thumb').forEach(function (o) { o.setAttribute('aria-pressed', String(o === t)); });
+      });
+    });
+  });
+</script>

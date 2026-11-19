@@ -1,0 +1,10 @@
+#!/bin/sh
+# Preview the site on http://localhost:4000 with Docker (no local Ruby needed).
+# Syncs the docs from ../BuzzUI and ../BuzzController first (override with BUZZUI_DIR / BUZZCONTROLLER_DIR).
+set -e
+cd "$(dirname "$0")/.."
+docker run --rm -v "$PWD":/site -v "${BUZZUI_DIR:-$PWD/../BuzzUI}":/src/BuzzUI:ro \
+  -v "${BUZZCONTROLLER_DIR:-$PWD/../BuzzController}":/src/BuzzController:ro \
+  -v buzzerbox-site-gems:/usr/local/bundle -w /site -p 4000:4000 ruby:3.3 \
+  sh -c 'bundle install --quiet && ruby scripts/sync-docs.rb /src/BuzzUI /src/BuzzController &&
+         bundle exec jekyll serve --host 0.0.0.0 --livereload --force_polling'

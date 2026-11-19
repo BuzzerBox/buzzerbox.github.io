@@ -1,0 +1,104 @@
+# Content of /hardware/.
+#
+# images: a list of {src, alt, fit}; the first is shown large, the others as thumbnails to switch to.
+#   fit: contain shows a photo whole (for portrait photos) instead of cropping it to 4:3; square shows it 1:1.
+#   Without images, the page shows a placeholder. Photos go into assets/img/hardware/ (about 1600 px, 4:3, no metadata).
+# status: optional label next to the name, e.g. "Coming soon".
+# Values that start with "TODO" are shown highlighted, so they're easy to find and fill in.
+
+boxes:
+  - id: compact
+    name: BuzzerBox Compact
+    tagline: Everything you need in one lightweight case, with a built-in touchscreen. Great for small parties.
+    images:
+      - src: /assets/img/hardware/compact-box-front.jpg
+        alt: The compact box with its touchscreen showing the game master, and wireless buzzers on the table
+      - src: /assets/img/hardware/compact-box-back.jpg
+        alt: "The back of the compact box: power, HDMI, USB and Ethernet ports, with two wireless buzzers behind it"
+    points:
+      - Built-in touchscreen to run the game on the box itself
+      - Plays with the wireless buzzers, so there are no cables to the teams
+      - HDMI to a TV or projector, just like the BuzzerBox Classic
+      - Lightweight case that's easy to bring along
+  - id: classic
+    name: BuzzerBox Classic
+    tagline: The full setup for events, with up to ten wired buzzers.
+    images:
+      - src: /assets/img/hardware/classic-box-case.jpg
+        alt: The classic box, a rugged orange case with the BuzzerBox badge on its front
+      - src: /assets/img/hardware/classic-box-panel.jpg
+        alt: "The opened classic box: ten numbered XLR sockets, power, HDMI, USB, a reset button and the 7-segment display"
+      - src: /assets/img/hardware/classic-box-in-use.jpg
+        alt: The classic box in use, two buzzers plugged in and the display showing that buzzer 2 was first
+    points:
+      - Ten ports for wired buzzers, plus wireless buzzers
+      - Buzzers locked by a microcontroller in hardware
+      - 7-segment display and release button on the front panel
+      - HDMI to a TV or projector
+  - id: pro
+    name: BuzzerBox Pro
+    status: Coming soon
+    tagline: The next BuzzerBox is in the works. More soon.
+    images:
+    points:
+
+# Rows of the box comparison: [label, compact, classic] (the order of the first two boxes above)
+box_comparison:
+  - ["Best for", "Small parties and gatherings, on the go", "Larger events, stages, many teams"]
+  - ["Computer", "Raspberry Pi Compute Module 4 on the standard CM4 IO Board", "Raspberry Pi Compute Module 4 on the BuzzerBox controller board"]
+  - ["Game master", "The built-in touchscreen, or a phone, tablet or laptop", "Phone, tablet or laptop over the box's WiFi"]
+  - ["Screen for the teams", "TV or projector over HDMI", "TV or projector over HDMI"]
+  - ["Wired (analog) buzzers", "—", "Up to 10, on XLR cables"]
+  - ["Case", "Lightweight case with the touchscreen built in", "Front panel with buzzer ports, 7-segment display and release button"]
+  - ["Wireless buzzers", "Yes", "Yes"]
+  - ["Who buzzed first", "The touchscreen and the TV", "7-segment display on the box, LED on the buzzer, the TV"]
+  - ["Releasing the buzzers", "Game master", "Game master or the release button on the box"]
+  - ["WiFi and internet", "Own WiFi, no internet needed", "Own WiFi, no internet needed"]
+
+buzzers:
+  - id: analog
+    name: Buzzer Analog
+    tagline: A big button on a cable. Nothing to charge, nothing to set up.
+    images:
+      - src: /assets/img/hardware/analog-buzzers.jpg
+        alt: Two analog buzzers with long XLR cables leading back to the classic box
+        fit: square
+    points:
+      - Plugs into the BuzzerBox Classic with an XLR cable
+      - Lights up when it's the first to buzz
+      - Locked in hardware by the box's microcontroller, within microseconds
+  - id: wireless
+    name: Buzzer Wireless
+    tagline: Battery-powered and cable-free, for teams spread across the room.
+    images:
+      - src: /assets/img/hardware/wireless-buzzers.jpg
+        alt: Two wireless buzzers with black domes, one in a yellow case and one in a blue case
+        fit: square
+    points:
+      - Joins the box's WiFi; sleeps until its button is pressed
+      - Adopted once by plugging it into the box over USB
+      - Named after the color of its case, which the screens use for its team
+      - Its clock is synchronized with the box, so the first press really wins
+  - id: pro-buzzer
+    name: Buzzer Pro
+    status: Coming soon
+    tagline: A digital buzzer that stays on a cable. More soon.
+    images:
+    points:
+
+# Rows of the buzzer comparison: [label, analog, wireless]
+buzzer_comparison:
+  - ["Works with", "BuzzerBox Classic", "BuzzerBox Compact and Classic"]
+  - ["Connection", "XLR cable to the box", "The box's WiFi"]
+  - ["Power", "From the box", "Battery, charged over USB from the box or any charger"]
+  - ["Setup", "Plug it in", "Adopt it once over USB; after that, press to wake it"]
+  - ["How many", "Up to 10, one per port", "Up to 8"]
+  - ["Telling them apart", "By port number", "By case color (e.g. \"Blue wireless buzzer\")"]
+  - ["Light", "LED in the button", "Colored light: connected, low battery, adopted, …"]
+  - ["Battery shown to the game master", "—", "Yes, in percent on the Feather ESP32-S3"]
+  - ["Inside", "Button and LED", "Adafruit ESP32 Feather V2 or Feather ESP32-S3 and a big button"]
+
+# A game is played with one kind: shown under the buzzer comparison.
+buzzer_note: >-
+  A game is played either with the analog buzzers or with the wireless ones, not with both at the same time. You
+  choose when preparing the game.

@@ -1,0 +1,10 @@
+<nav aria-label="Documentation">
+  {% for s in site.data.docs_nav %}
+  <p class="docs-nav-title">{{ s.title }}</p>
+  <ul>
+    {% for p in s.pages %}
+    <li><a href="{{ p.url | relative_url }}"{% if p.url == page.url %} aria-current="page"{% endif %}>{{ p.title }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</nav>

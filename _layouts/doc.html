@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="container docs">
+  <aside class="docs-nav">
+    <details id="docs-nav">
+      <summary>Documentation</summary>
+      {% include docs-nav.html %}
+    </details>
+    <script>if (matchMedia("(min-width: 960px)").matches) document.getElementById("docs-nav").open = true;</script>
+  </aside>
+  <article class="prose doc">
+    {% assign section = site.data.docs_nav | where: "section", page.section | first %}
+    {% if section %}<p class="eyebrow"><a href="{{ '/docs/' | relative_url }}">Docs</a> / {{ section.title }}</p>{% endif %}
+    <h1>{{ page.title }}</h1>
+    {{ content }}
+    {% if page.source_url %}
+    <p class="source-link">
+      This page comes from <a href="{{ page.source_url }}">{{ page.source_url | split: "/blob/" | first | split: "/" | last }}</a>.
+      <a href="{{ page.source_url | replace: '/blob/', '/edit/' }}">Suggest a change on GitHub</a>.
+    </p>
+    {% endif %}
+  </article>
+</div>
