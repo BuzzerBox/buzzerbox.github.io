@@ -20,6 +20,12 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# The branches the docs are taken from. BuzzUI's docs (the user guide, the developer docs and the screenshots the
+# home page uses) are only on docs/update-and-user-guide until that branch is merged; then set this back to main.
+env:
+  BUZZUI_REF: docs/update-and-user-guide
+  BUZZCONTROLLER_REF: main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,10 +35,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: BuzzerBox/BuzzUI
+          ref: ${{ env.BUZZUI_REF }}
           path: _sources/BuzzUI
       - uses: actions/checkout@v4
         with:
           repository: BuzzerBox/BuzzController
+          ref: ${{ env.BUZZCONTROLLER_REF }}
           path: _sources/BuzzController
 
       - uses: ruby/setup-ruby@v1

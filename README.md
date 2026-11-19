@@ -35,6 +35,10 @@ With Ruby 3.x: `bundle install`, `ruby scripts/sync-docs.rb ../BuzzUI ../BuzzCon
 on a `repository_dispatch` of type `docs-updated`. In the repository settings, *Pages → Source* has to be
 **GitHub Actions**.
 
+The docs come from the branches set in `env` at the top of the workflow (`BUZZUI_REF`, `BUZZCONTROLLER_REF`).
+A page or image folder missing on that branch is skipped with a warning in the build log, and links to it go to
+GitHub instead.
+
 To publish doc changes right away, BuzzUI and BuzzController can trigger a build when their docs change, with a
 token that may dispatch to this repository:
 
