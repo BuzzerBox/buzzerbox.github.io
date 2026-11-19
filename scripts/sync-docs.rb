@@ -78,6 +78,9 @@ IMAGE_DIRS = [
   ["BuzzController", "docs/images", "docs/hardware/images"]
 ].freeze
 
+# Sections (by "## Heading") that are left out of the site; delete an entry to show that section again.
+SKIP_SECTIONS = ["License"].freeze
+
 GENERATED = %w[docs/user docs/developer docs/hardware].freeze # includes the copied image folders
 IMAGE_EXT = /\.(png|jpe?g|gif|svg|webp)\z/i
 
@@ -131,6 +134,10 @@ SECTIONS.each do |section, s|
     text = File.read(File.join(REPOS[repo][:dir], src))
     title = title_override || text[/\A\s*#\s+(.+)$/, 1]&.strip || File.basename(dst, ".md")
     text = text.sub(/\A\s*#\s+.+\n/, "") # the layout renders the title
+    SKIP_SECTIONS.each do |heading|
+      # from "## Heading" up to the next heading of level 1 or 2, or the end; also a "---" rule just before it
+      text = text.sub(/(?:^---\s*\n\s*)?^##\s+#{Regexp.escape(heading)}\s*\n.*?(?=^[#]{1,2}\s|\z)/m, "")
+    end
 
     # [text](target) and [text](target "title"); keep fenced code untouched
     in_fence = false
