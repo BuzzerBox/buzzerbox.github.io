@@ -12,11 +12,37 @@ ref: home
       <p>Teams plug in their buzzers, a TV shows the questions and scores, and you run the game from your phone.
          The first team to buzz locks out the others. The BuzzerBox brings its own WiFi and needs no internet.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="{{ '/docs/user/quick-start.html' | relative_url }}">Get started</a>
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+        <a class="btn btn-primary" href="{{ '/events/' | relative_url }}">A quiz at your event?</a>
+        <a class="btn btn-ghost" href="#how">How it works</a>
       </div>
     </div>
     <img class="hero-shot" src="{{ img }}screen-buzz.jpg" alt="The TV screen showing which team buzzed first" width="1280" height="720">
+  </div>
+</section>
+
+<section class="section section-alt events-band">
+  <div class="container">
+    <p class="eyebrow">Events</p>
+    <h2>A quiz show at your event?</h2>
+    <p class="sub">Planning a quiz? Borrow the box from us in North Rhine-Westphalia and host it yourself. Just get in
+      touch.</p>
+    <div class="grid grid-2">
+      <a class="card" href="{{ '/events/#rent' | relative_url }}">
+        {% include icon.html name="box" %}
+        <h3>Borrow the box</h3>
+        <p>Host the quiz yourself: you get the box and the buzzers ready to play, and we show you how it works.</p>
+        <span class="more">Borrowing the box →</span>
+      </a>
+      <a class="card" href="{{ '/events/#suggest' | relative_url }}">
+        {% include icon.html name="party" %}
+        <h3>Suggest an event</h3>
+        <p>Now and then we bring the BuzzerBox to events ourselves. Know one where a quiz show would fit? Tell us.</p>
+        <span class="more">Suggest an event →</span>
+      </a>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/events/#contact' | relative_url }}">Interested? Get in touch</a>
+    </div>
   </div>
 </section>
 
@@ -44,19 +70,19 @@ ref: home
     <p class="eyebrow">Features</p>
     <h2>Made for real quiz nights</h2>
     <p class="sub">Built and refined since 2021, at parties and quiz evenings.</p>
-    <div class="grid">
-      <div class="card">{% include icon.html name="offline" %}<h3>No internet needed</h3>
-        <p>The box is its own WiFi and server. It works anywhere, from a cellar to a garden or a gym hall.</p></div>
-      <div class="card">{% include icon.html name="buzzer" %}<h3>Fair buzzing</h3>
-        <p>A microcontroller locks the first buzzer in hardware. Wireless buzzers sync their clocks with the box.</p></div>
-      <div class="card">{% include icon.html name="media" %}<h3>Images, audio and video</h3>
-        <p>Questions can show pictures, play songs or videos on the TV, and reveal clues step by step.</p></div>
-      <div class="card">{% include icon.html name="edit" %}<h3>Game editor</h3>
-        <p>Write games in the browser, upload media, and move games between boxes as one file.</p></div>
+    <div class="grid grid-3">
+      <div class="card">{% include icon.html name="team" %}<h3>Up to ten teams</h3>
+        <p>Every team gets its own buzzer. The first to press locks out the others, and the TV shows who it was.</p></div>
+      <div class="card">{% include icon.html name="edit" %}<h3>Your own questions</h3>
+        <p>Write the quiz in the browser: free answers or four options, points per question, and notes only you can see.</p></div>
+      <div class="card">{% include icon.html name="music" %}<h3>Pictures, music and video</h3>
+        <p>Picture rounds, guess-the-song, film clips and slideshows, played on the TV for everyone at once.</p></div>
+      <div class="card">{% include icon.html name="phone" %}<h3>Run it from your phone</h3>
+        <p>Start questions, play media and grade answers with one tap. Double points and bonus points if you like.</p></div>
       <div class="card">{% include icon.html name="trophy" %}<h3>Scores and podium</h3>
-        <p>Grade answers with one tap. Pause and resume a game, and finish with a podium on the big screen.</p></div>
-      <div class="card">{% include icon.html name="update" %}<h3>Signed updates</h3>
-        <p>Install new versions from a USB stick or the browser. Each update is checked with a signature.</p></div>
+        <p>The score updates on the TV after every answer. Pause and carry on later, and finish with a podium.</p></div>
+      <div class="card">{% include icon.html name="globe" %}<h3>Your look, your language</h3>
+        <p>Pick a look for the screen, and play in English or German. Rename or add teams in the middle of a game.</p></div>
     </div>
   </div>
 </section>

@@ -1,0 +1,68 @@
+---
+layout: default
+title: Events
+permalink: /events/
+ref: events
+description: A quiz show at your event? Borrow the BuzzerBox from us and host it yourself, or suggest an event we should bring it to.
+---
+<section class="hero" style="padding-bottom:24px">
+  <div class="container">
+    <p class="eyebrow">Events</p>
+    <h1>A quiz show <em>at your event?</em></h1>
+    <p>Planning a quiz? Borrow the BuzzerBox from us and host it yourself. We also bring it to events now and then, so
+      if you know one where a quiz show would fit, tell us. We're based in North Rhine-Westphalia. Just get in touch.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#contact">Interested? Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card offer" id="rent">
+        {% include icon.html name="box" %}
+        <h3>Borrow the box</h3>
+        <p>Host the quiz yourself. You get the box and the buzzers ready to play, and we show you how it works.</p>
+        <ul>
+          <li>The <a href="{{ '/hardware/' | relative_url }}">BuzzerBox Classic or Compact</a>, with up to ten buzzers</li>
+          <li>A short introduction when you pick it up</li>
+          <li>Write your own game in the browser; the <a href="{{ '/docs/user/' | relative_url }}">user guide</a> explains every step</li>
+          <li>No internet needed: the box brings its own WiFi</li>
+          <li>Picked up from us in North Rhine-Westphalia</li>
+        </ul>
+      </div>
+      <div class="card offer" id="suggest">
+        {% include icon.html name="party" %}
+        <h3>Suggest an event</h3>
+        <p>Now and then we bring the BuzzerBox to events ourselves and run a quiz there. Know an event where that would
+          fit, especially in or near North Rhine-Westphalia? Tell us about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">How it works</p>
+    <h2>From the first message to the podium</h2>
+    <div class="grid steps" style="margin-top:24px">
+      <div class="card step">{% include icon.html name="mail" %}<h3>Get in touch</h3>
+        <p>Tell us the date, the place and roughly how many guests or teams there will be.</p></div>
+      <div class="card step">{% include icon.html name="calendar" %}<h3>Plan it together</h3>
+        <p>We get back to you, talk through what you have in mind and sort out the details.</p></div>
+      <div class="card step">{% include icon.html name="trophy" %}<h3>Quiz night</h3>
+        <p>The teams buzz, the TV shows who was first, and the night ends with a podium.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <p class="eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="sub">Interested, or just curious? Tell us what you have in mind and we'll get back to you. The form opens your mail program with your
+      message filled in; nothing is sent until you press send there.</p>
+    {% include contact-form.html %}
+  </div>
+</section>

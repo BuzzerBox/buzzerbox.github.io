@@ -11,6 +11,7 @@ Built with Jekyll 4 and deployed to GitHub Pages by a GitHub Action.
 | Landing page | `index.html` |
 | Hardware versions | `_data/hardware.yml` (photos go into `assets/img/hardware/`, then set `image:`) |
 | Use cases | `_data/use_cases.yml` |
+| Events and the contact form | `events.html`, `de/veranstaltungen.html`, `_includes/contact-form.html`; the address is `contact_email` in `_config.yml` |
 | Docs hub | `docs/index.html` |
 | Look | `assets/css/site.css`, `_layouts/`, `_includes/` |
 | The docs themselves | **in BuzzUI and BuzzController**, not here |

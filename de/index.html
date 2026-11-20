@@ -21,11 +21,39 @@ description: >-
          aus. Das erste Team, das buzzert, sperrt die anderen. Die BuzzerBox bringt ihr eigenes WLAN mit und braucht kein
          Internet.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="{{ guide | append: 'quick-start.html' | relative_url }}">Loslegen</a>
-        <a class="btn btn-ghost" href="#how">So funktioniert es</a>
+        <a class="btn btn-primary" href="{{ '/de/veranstaltungen/' | relative_url }}">Ein Quiz veranstalten</a>
+        <a class="btn btn-ghost" href="#how">So geht's</a>
       </div>
     </div>
     <img class="hero-shot" src="{{ img }}screen-buzz.jpg" alt="Der Fernseher zeigt, welches Team zuerst gebuzzert hat" width="1280" height="720">
+  </div>
+</section>
+
+<section class="section section-alt events-band">
+  <div class="container">
+    <p class="eyebrow">Veranstaltungen</p>
+    <h2>Eine Quizshow auf deiner Veranstaltung?</h2>
+    <p class="sub">Du planst ein Quiz? Leih dir die Box bei uns in Nordrhein-Westfalen und leite es selbst. Meld dich
+      einfach bei uns.</p>
+    <div class="grid grid-2">
+      <a class="card" href="{{ '/de/veranstaltungen/#rent' | relative_url }}">
+        {% include icon.html name="box" %}
+        <h3>Die Box leihen</h3>
+        <p>Leite das Quiz selbst: Du bekommst die Box und die Buzzer spielbereit, und wir zeigen dir, wie alles
+          funktioniert.</p>
+        <span class="more">Die Box leihen →</span>
+      </a>
+      <a class="card" href="{{ '/de/veranstaltungen/#suggest' | relative_url }}">
+        {% include icon.html name="party" %}
+        <h3>Eine Veranstaltung vorschlagen</h3>
+        <p>Ab und zu bringen wir die BuzzerBox selbst zu Veranstaltungen mit. Kennst du eine, auf die ein Quiz passen
+          würde? Erzähl uns davon.</p>
+        <span class="more">Veranstaltung vorschlagen →</span>
+      </a>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/de/veranstaltungen/#contact' | relative_url }}">Interesse? Meld dich!</a>
+    </div>
   </div>
 </section>
 
@@ -55,22 +83,24 @@ description: >-
     <p class="eyebrow">Funktionen</p>
     <h2>Gemacht für echte Quizabende</h2>
     <p class="sub">Seit 2021 gebaut und verfeinert, auf Partys und Quizabenden.</p>
-    <div class="grid">
-      <div class="card">{% include icon.html name="offline" %}<h3>Kein Internet nötig</h3>
-        <p>Die Box ist ihr eigenes WLAN und ihr eigener Server. Sie funktioniert überall, vom Keller über den Garten bis
-          zur Turnhalle.</p></div>
-      <div class="card">{% include icon.html name="buzzer" %}<h3>Faires Buzzern</h3>
-        <p>Ein Mikrocontroller sperrt den ersten Buzzer in Hardware. Funkbuzzer synchronisieren ihre Uhr mit der Box.</p></div>
-      <div class="card">{% include icon.html name="media" %}<h3>Bilder, Audio und Video</h3>
-        <p>Fragen können Bilder zeigen, Songs oder Videos auf dem Fernseher abspielen und Hinweise Schritt für Schritt
-          aufdecken.</p></div>
-      <div class="card">{% include icon.html name="edit" %}<h3>Spiel-Editor</h3>
-        <p>Spiele im Browser schreiben, Medien hochladen und Spiele als eine Datei zwischen Boxen übertragen.</p></div>
-      <div class="card">{% include icon.html name="trophy" %}<h3>Punkte und Siegertreppchen</h3>
-        <p>Antworten mit einem Tipp bewerten. Ein Spiel pausieren und fortsetzen, und mit dem Siegertreppchen auf der großen
-          Leinwand abschließen.</p></div>
-      <div class="card">{% include icon.html name="update" %}<h3>Signierte Updates</h3>
-        <p>Neue Versionen vom USB-Stick oder im Browser installieren. Jedes Update wird anhand einer Signatur geprüft.</p></div>
+    <div class="grid grid-3">
+      <div class="card">{% include icon.html name="team" %}<h3>Bis zu zehn Teams</h3>
+        <p>Jedes Team bekommt seinen eigenen Buzzer. Wer zuerst drückt, sperrt die anderen, und der Fernseher zeigt, wer
+          es war.</p></div>
+      <div class="card">{% include icon.html name="edit" %}<h3>Deine eigenen Fragen</h3>
+        <p>Schreib das Quiz im Browser: freie Antworten oder vier Antwortmöglichkeiten, Punkte pro Frage und Notizen, die
+          nur du siehst.</p></div>
+      <div class="card">{% include icon.html name="music" %}<h3>Bilder, Musik und Video</h3>
+        <p>Bilderrunden, Songs erraten, Filmausschnitte und Diashows, für alle gleichzeitig auf dem Fernseher.</p></div>
+      <div class="card">{% include icon.html name="phone" %}<h3>Vom Handy aus leiten</h3>
+        <p>Fragen starten, Medien abspielen und Antworten mit einem Tipp bewerten. Auf Wunsch mit doppelten Punkten und
+          Bonuspunkten.</p></div>
+      <div class="card">{% include icon.html name="trophy" %}<h3>Punktestand und Siegertreppchen</h3>
+        <p>Der Punktestand erscheint nach jeder Antwort auf dem Fernseher. Pausieren, später weiterspielen und mit dem
+          Siegertreppchen abschließen.</p></div>
+      <div class="card">{% include icon.html name="globe" %}<h3>Dein Design, deine Sprache</h3>
+        <p>Wähl ein Design für die Anzeige und spiel auf Deutsch oder Englisch. Teams lassen sich mitten im Spiel umbenennen
+          oder hinzufügen.</p></div>
     </div>
   </div>
 </section>
