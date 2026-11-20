@@ -1,0 +1,48 @@
+---
+layout: default
+title: Einsatzbereiche
+permalink: /de/einsatzbereiche/
+lang: de
+ref: use-cases
+description: Wo die BuzzerBox zum Einsatz kommt, vom Quizabend bis zum Klassenzimmer.
+---
+<section class="hero" style="padding-bottom:24px">
+  <div class="container">
+    <p class="eyebrow">Einsatzbereiche</p>
+    <h1>Überall, wo um die <em>schnellste Antwort</em> gerungen wird.</h1>
+    <p>Die BuzzerBox braucht eine Steckdose und einen Fernseher, sonst nichts. Keine Konten, keine App, kein Internet.</p>
+  </div>
+</section>
+<section class="section" style="padding-top:24px" id="in-action">
+  <div class="container">
+    <p class="eyebrow">Im Einsatz</p>
+    <h2>Wer ist der Erste?</h2>
+    <div class="mosaic" style="margin-top:24px">
+      {% for g in site.data.de.gallery %}
+      <figure><img src="{{ g.src | relative_url }}" alt="{{ g.alt }}"{% if g.position %} style="object-position: {{ g.position }}"{% endif %} loading="{% if forloop.first %}eager{% else %}lazy{% endif %}"></figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Ideen</p>
+    <h2>Wofür sie passt</h2>
+    <div class="grid">
+      {% for u in site.data.de.use_cases %}
+      <div class="card">{% include icon.html name=u.icon %}<h3>{{ u.title }}</h3><p>{{ u.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section class="section cta">
+  <div class="container">
+    <h2>Plane dein erstes Spiel</h2>
+    <p class="sub" style="margin-inline:auto">Wie du ein Spiel mit Medien schreibst und es am Abend leitest. Die Anleitungen sind auf Englisch.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ '/docs/user/creating-games.html' | relative_url }}" hreflang="en">Spiele erstellen</a>
+      <a class="btn btn-ghost" href="{{ '/docs/user/hosting-a-game.html' | relative_url }}" hreflang="en">Ein Spiel leiten</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+# Interface strings of the layout and includes, per language. A page sets its language with `lang:` in its front
+# matter (default: site.lang). Pages that are translations of each other share a `ref:`; the header links them.
+en:
+  skip: Skip to content
+  nav_main: Main
+  hardware: Hardware
+  use_cases: Use cases
+  docs: Docs
+  language_name: English
+  footer_tagline: a quiz-show buzzer system.
+  feature: Feature
+  photo_coming_soon: Photo coming soon
+  photo_still_to_come: "Photo of the %s still to come"
+  photos_of: "Photos of the %s"
+  show: "Show:"
+  documentation: Documentation
+  source_note: "This page comes from %s."
+  suggest_change: Suggest a change on GitHub
+de:
+  skip: Zum Inhalt springen
+  nav_main: Hauptmenü
+  hardware: Hardware
+  use_cases: Einsatzbereiche
+  docs: Doku
+  language_name: Deutsch
+  footer_tagline: ein Buzzer-System für Quizshows.
+  feature: Merkmal
+  photo_coming_soon: Foto folgt
+  photo_still_to_come: "Foto folgt: %s"
+  photos_of: "Fotos: %s"
+  show: "Zeigen:"
+  documentation: Dokumentation
+  source_note: "Diese Seite stammt aus %s."
+  suggest_change: Eine Änderung auf GitHub vorschlagen

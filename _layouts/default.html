@@ -1,11 +1,35 @@
 <!doctype html>
-<html lang="{{ site.lang | default: 'en' }}">
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+<html lang="{{ lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="{{ '/assets/img/logo.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   {% seo %}
+  {%- if page.ref %}{% assign versions = site.pages | where: "ref", page.ref %}{% for v in versions %}
+  <link rel="alternate" hreflang="{{ v.lang | default: site.lang }}" href="{{ v.url | absolute_url }}">
+  {%- endfor %}
+  {%- if versions.size > 1 %}
+  <script>
+    // Shows the translation of this page in the visitor's language: the one they chose with the language switch,
+    // or else the first of their browser's languages that the site has.
+    (function () {
+      var versions = { {% for v in versions %}{{ v.lang | default: site.lang | jsonify }}: {{ v.url | relative_url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %} };
+      var lang = {{ lang | jsonify }}, want = null;
+      try { want = localStorage.getItem("lang"); } catch (e) {}
+      if (!versions[want]) {
+        want = null;
+        var langs = navigator.languages || [navigator.language || ""];
+        for (var i = 0; i < langs.length && !want; i++) {
+          var code = String(langs[i]).slice(0, 2).toLowerCase();
+          if (versions[code]) want = code;
+        }
+      }
+      if (want && want !== lang) location.replace(versions[want] + location.search + location.hash);
+    })();
+  </script>
+  {%- endif %}{% endif %}
 </head>
 <body class="{{ page.body_class }}">
   {% include header.html %}
@@ -13,5 +37,12 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <script>
+    // Remembers the language chosen with the language switch, so the page doesn't switch back to the browser's.
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a.nav-lang");
+      if (a) try { localStorage.setItem("lang", a.hreflang); } catch (err) {}
+    });
+  </script>
 </body>
 </html>

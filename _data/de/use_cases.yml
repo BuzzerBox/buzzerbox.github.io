@@ -1,0 +1,37 @@
+# Die Einsatzbereiche auf /de/einsatzbereiche/: die deutsche Fassung von _data/use_cases.yml.
+
+- title: Quizabende
+  icon: mic
+  text: >-
+    Ein Kneipen- oder Vereinsquiz wie im Fernsehen: Die Teams buzzern, der Fernseher zeigt Frage und Punktestand,
+    und du bewertest am Handy, während du durch den Raum gehst.
+
+- title: Partys und Familienfeiern
+  icon: party
+  text: >-
+    Geburtstage, Hochzeiten, Silvester. Schreib ein Quiz über die Hauptperson, mit deinen eigenen Fotos, Liedern
+    und Videos. Nichts zu installieren und kein Internet nötig.
+
+- title: Schulen und Jugendgruppen
+  icon: school
+  text: >-
+    Für die Klassenarbeit lernen als Quizshow. Die Box bringt ihr eigenes WLAN mit, funktioniert also in jedem
+    Klassenzimmer, und ein Quiz lässt sich von einer Box auf eine andere kopieren.
+
+- title: Firmen- und Teamevents
+  icon: team
+  text: >-
+    Teambuilding, Onboarding-Quiz, das Sommerfest. Buzzer, Punktestand und ein Siegertreppchen auf der großen
+    Leinwand, in wenigen Minuten aufgebaut.
+
+- title: Musik-, Film- und Themenquiz
+  icon: music
+  text: >-
+    Fragen können Bilder, Audio und Video enthalten: Spiel einen Song an und buzzere den Interpreten, zeig ein
+    Standbild und buzzere den Film, oder deck Hinweise nacheinander auf.
+
+- title: Vereine und Messen
+  icon: star
+  text: >-
+    Ein Mitmachspiel am Messestand oder zum Vereinsjubiläum. Die Funkbuzzer lassen sich im ganzen Raum verteilen,
+    und die Buzzer der Box halten jede Menge Drücken aus.

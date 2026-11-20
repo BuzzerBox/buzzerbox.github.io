@@ -1,5 +1,6 @@
-<nav aria-label="Documentation">
-  {% for s in site.data.docs_nav %}
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+<nav aria-label="{{ site.data.i18n[lang].documentation }}">
+  {% for s in site.data.docs_nav %}{% if s.lang and s.lang != lang %}{% continue %}{% endif %}
   <p class="docs-nav-title">{{ s.title }}</p>
   <ul>
     {% for p in s.pages %}

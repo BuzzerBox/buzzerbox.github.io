@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Documentation
+ref: docs
 description: The BuzzerBox documentation for hosts, developers and hardware builders.
 ---
 <section class="hero" style="padding-bottom:24px">
@@ -16,7 +17,8 @@ description: The BuzzerBox documentation for hosts, developers and hardware buil
     <div class="grid">
       {% assign icons = "book,code,chip" | split: "," %}
       {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzUI on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the controller board and its firmware, the wireless buzzers and their protocols." | split: "|" %}
-      {% for s in site.data.docs_nav %}
+      {% assign sections = site.data.docs_nav | where_exp: "s", "s.lang == nil or s.lang == site.lang" %}
+      {% for s in sections %}
       {% assign icon = icons[forloop.index0] %}
       <div class="card">
         {% include icon.html name=icon %}

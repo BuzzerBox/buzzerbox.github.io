@@ -1,0 +1,169 @@
+---
+layout: default
+title: Eine Quizshow in einer Box
+permalink: /de/
+lang: de
+ref: home
+description: >-
+  Die BuzzerBox ist ein Buzzer-System für Quizshows: eine Box, an die die Teams ihre Buzzer anschließen, ein Fernseher,
+  der Fragen und Punktestand zeigt, und ein Handy, das das Spiel leitet. Sie bringt ihr eigenes WLAN mit und braucht
+  kein Internet.
+---
+{% assign img = '/docs/user/images/' | relative_url %}
+{%- comment -%} The German user guide, or the English one while BuzzUI doesn't have it yet. {%- endcomment -%}
+{% assign guide = '/docs/user/' %}{% if site.data.docs_nav %}{% assign de_guide = site.data.docs_nav | where: "lang", "de" | first %}{% if de_guide %}{% assign guide = '/de/docs/user/' %}{% endif %}{% endif %}
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Buzzer für Quizshows</p>
+      <h1>Eine Quizshow <em>in einer Box.</em></h1>
+      <p>Die Teams schließen ihre Buzzer an, ein Fernseher zeigt Fragen und Punktestand, und du leitest das Spiel vom Handy
+         aus. Das erste Team, das buzzert, sperrt die anderen. Die BuzzerBox bringt ihr eigenes WLAN mit und braucht kein
+         Internet.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="{{ guide | append: 'quick-start.html' | relative_url }}">Loslegen</a>
+        <a class="btn btn-ghost" href="#how">So funktioniert es</a>
+      </div>
+    </div>
+    <img class="hero-shot" src="{{ img }}screen-buzz.jpg" alt="Der Fernseher zeigt, welches Team zuerst gebuzzert hat" width="1280" height="720">
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="container">
+    <p class="eyebrow">So funktioniert es</p>
+    <h2>In wenigen Minuten aufgebaut</h2>
+    <p class="sub">Alles, was ein Quiz braucht, steckt in der Box: die Steuerung der Buzzer, der Spielserver, das WLAN und
+      der HDMI-Ausgang für den Fernseher.</p>
+    <div class="grid steps">
+      <div class="card step">{% include icon.html name="tv" %}<h3>Fernseher anschließen</h3>
+        <p>Schließ einen Fernseher oder Beamer an den HDMI-Anschluss der Box an. Er zeigt Fragen, Medien, Punktestand und
+          das Siegertreppchen.</p></div>
+      <div class="card step">{% include icon.html name="buzzer" %}<h3>Buzzer anschließen</h3>
+        <p>Bis zu zehn Buzzer: kabelgebunden an robusten XLR-Kabeln, oder Funkbuzzer, die auf Knopfdruck aufwachen.</p></div>
+      <div class="card step">{% include icon.html name="wifi" %}<h3>Mit dem WLAN der Box verbinden</h3>
+        <p>Die Box öffnet ihr eigenes Netz. Verbinde dich mit Handy, Tablet oder Laptop und öffne <code>buzzer.box</code>.</p></div>
+      <div class="card step">{% include icon.html name="phone" %}<h3>Das Spiel leiten</h3>
+        <p>Als Spielleitung startest du Fragen, spielst Medien ab und bewertest Antworten. Der Punktestand erscheint sofort
+          auf dem Fernseher.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Funktionen</p>
+    <h2>Gemacht für echte Quizabende</h2>
+    <p class="sub">Seit 2021 gebaut und verfeinert, auf Partys und Quizabenden.</p>
+    <div class="grid">
+      <div class="card">{% include icon.html name="offline" %}<h3>Kein Internet nötig</h3>
+        <p>Die Box ist ihr eigenes WLAN und ihr eigener Server. Sie funktioniert überall, vom Keller über den Garten bis
+          zur Turnhalle.</p></div>
+      <div class="card">{% include icon.html name="buzzer" %}<h3>Faires Buzzern</h3>
+        <p>Ein Mikrocontroller sperrt den ersten Buzzer in Hardware. Funkbuzzer synchronisieren ihre Uhr mit der Box.</p></div>
+      <div class="card">{% include icon.html name="media" %}<h3>Bilder, Audio und Video</h3>
+        <p>Fragen können Bilder zeigen, Songs oder Videos auf dem Fernseher abspielen und Hinweise Schritt für Schritt
+          aufdecken.</p></div>
+      <div class="card">{% include icon.html name="edit" %}<h3>Spiel-Editor</h3>
+        <p>Spiele im Browser schreiben, Medien hochladen und Spiele als eine Datei zwischen Boxen übertragen.</p></div>
+      <div class="card">{% include icon.html name="trophy" %}<h3>Punkte und Siegertreppchen</h3>
+        <p>Antworten mit einem Tipp bewerten. Ein Spiel pausieren und fortsetzen, und mit dem Siegertreppchen auf der großen
+          Leinwand abschließen.</p></div>
+      <div class="card">{% include icon.html name="update" %}<h3>Signierte Updates</h3>
+        <p>Neue Versionen vom USB-Stick oder im Browser installieren. Jedes Update wird anhand einer Signatur geprüft.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">Ein Blick hinein</p>
+    <h2>Die Spielleitung und die Anzeige</h2>
+    <p class="sub">Eine Web-App macht beides: die Spielleitung auf deinem Handy und die Anzeige auf dem Fernseher.</p>
+    <div class="shots">
+      <figure><img src="{{ img }}play-question.png" alt="Die Seite der Spielleitung während einer Frage" loading="lazy"><figcaption>Eine Frage als Spielleitung führen</figcaption></figure>
+      <figure><img src="{{ img }}screen-question2.jpg" alt="Eine Frage mit Bild auf dem Fernseher" loading="lazy"><figcaption>Eine Frage auf dem Fernseher</figcaption></figure>
+      <figure><img src="{{ img }}editor-questions.png" alt="Der Spiel-Editor mit einer Liste von Fragen" loading="lazy"><figcaption>Ein Spiel im Editor schreiben</figcaption></figure>
+      <figure><img src="{{ img }}grade-dialog.png" alt="Das Fenster zum Bewerten einer Antwort" loading="lazy"><figcaption>Eine Antwort bewerten</figcaption></figure>
+      <figure><img src="{{ img }}screen-correct.jpg" alt="Der Fernseher zeigt eine richtige Antwort" loading="lazy"><figcaption>Eine richtige Antwort auf dem Fernseher</figcaption></figure>
+      <figure><img src="{{ img }}screen-podium.png" alt="Das Siegertreppchen am Ende eines Spiels" loading="lazy"><figcaption>Das Siegertreppchen am Ende</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">Die Projekte</p>
+    <h2>Software und Hardware</h2>
+    <p class="sub">Die BuzzerBox besteht aus zwei Projekten, beide auf GitHub. Ihre Dokumentation ist auf Englisch.</p>
+    <div class="grid grid-2">
+      <div class="card project">
+        {% include icon.html name="code" %}
+        <h3>BuzzUI</h3>
+        <span class="tag">Node.js · Angular · Ansible</span>
+        <p>Die Web-App und das System der Box: der Spielserver, die App für Spielleitung und Anzeige, der Spiel-Editor und
+          das Image, das aus einem Raspberry Pi eine BuzzerBox macht.</p>
+        <ul>
+          <li>Der Spielserver hält den Zustand, Browser verbinden sich über WebSockets</li>
+          <li>Deutsch und Englisch, Designs für die Anzeige, Medienbibliothek</li>
+          <li>Reproduzierbares Raspberry-Pi-OS-Image, signierte Update-Pakete</li>
+        </ul>
+        <div class="links">
+          <a href="{{ site.repos.ui }}">Repository</a>
+          <a href="{{ '/docs/developer/architecture.html' | relative_url }}" hreflang="en">Architektur</a>
+          <a href="{{ '/docs/developer/development.html' | relative_url }}" hreflang="en">Entwicklungsumgebung</a>
+        </div>
+      </div>
+      <div class="card project">
+        {% include icon.html name="chip" %}
+        <h3>BuzzController</h3>
+        <span class="tag">ATmega328P · ESP32 · EAGLE / KiCad</span>
+        <p>Die Hardware: das Controller-Board mit dem Compute Module, die XLR-Platine und die Frontplatte, die Firmware, die
+          den ersten Buzzer sperrt, und die Funkbuzzer.</p>
+        <ul>
+          <li>10 Buzzer mit LEDs, eine 7-Segment-Anzeige und ein Freigabe-Taster</li>
+          <li>Serielles Protokoll mit Heartbeat zum Raspberry Pi</li>
+          <li>ESP32-Buzzer mit Akku über WLAN</li>
+        </ul>
+        <div class="links">
+          <a href="{{ site.repos.controller }}">Repository</a>
+          <a href="{{ '/de/hardware/' | relative_url }}">Hardware-Versionen</a>
+          <a href="{{ '/docs/hardware/controller.html' | relative_url }}" hreflang="en">Firmware-Doku</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-2">
+      <a class="card" href="{{ '/de/hardware/' | relative_url }}">
+        {% include icon.html name="chip" %}
+        <h3>Compact, Classic oder Pro</h3>
+        <p>Die BuzzerBox Classic mit bis zu zehn Buzzern, kabelgebunden oder per Funk, für größere Veranstaltungen, oder
+          die BuzzerBox Compact mit eingebautem Touchscreen und bis zu zehn Funkbuzzern für kleine Partys. Die BuzzerBox
+          Pro kommt bald.</p>
+        <span class="more">Boxen und Buzzer vergleichen →</span>
+      </a>
+      <a class="card" href="{{ '/de/einsatzbereiche/' | relative_url }}">
+        {% include icon.html name="party" %}
+        <h3>Wo sie zum Einsatz kommt</h3>
+        <p>Quizabende, Geburtstage, Klassenzimmer, Firmenevents und Themenquiz mit Musik und Film.</p>
+        <span class="more">Zu den Einsatzbereichen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt cta">
+  <div class="container">
+    <h2>Bereit fürs erste Quiz?</h2>
+    <p class="sub" style="margin-inline:auto">Das Benutzerhandbuch führt dich vom Auspacken der Box bis zum
+      Siegertreppchen. Zum Bauen oder Verändern einer Box gibt es die Entwickler- und Hardware-Doku (auf Englisch).</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="{{ guide | relative_url }}">Zum Benutzerhandbuch</a>
+      <a class="btn btn-ghost" href="{{ '/de/docs/' | relative_url }}">Alle Dokumentation</a>
+    </div>
+  </div>
+</section>

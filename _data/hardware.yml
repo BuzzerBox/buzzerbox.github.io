@@ -1,4 +1,4 @@
-# Content of /hardware/.
+# Content of /hardware/. The German version is _data/de/hardware.yml: keep it in step.
 #
 # images: a list of {src, alt, fit}; the first is shown large, the others as thumbnails to switch to.
 #   fit: contain shows a photo whole (for portrait photos) instead of cropping it to 4:3; square shows it 1:1.

@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
-      <strong>BuzzerBox</strong>, a quiz-show buzzer system.
+      {%- assign lang = page.lang | default: site.lang | default: "en" -%}<strong>BuzzerBox</strong>, {{ site.data.i18n[lang].footer_tagline }}
     </div>
     <nav aria-label="Footer">
       <a href="{{ site.repos.ui }}">BuzzUI</a>
