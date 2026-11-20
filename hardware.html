@@ -9,8 +9,9 @@ description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wire
   <div class="container">
     <p class="eyebrow">Hardware</p>
     <h1>Pick your box, <em>pick your buzzers.</em></h1>
-    <p>Two boxes and two kinds of buzzers. All of them run the same BuzzerBox software, bring their own WiFi and need
-      no internet.</p>
+    <p>Two boxes and two kinds of buzzers, with up to ten buzzers in a game. The BuzzerBox Compact plays with wireless
+      buzzers only, the BuzzerBox Classic with wired or wireless ones. All of them run the same BuzzerBox software,
+      bring their own WiFi and need no internet.</p>
     <nav class="pills" aria-label="On this page">
       <a href="#boxes">Boxes</a><a href="#buzzers">Buzzers</a><a href="#build">Build your own</a>
     </nav>
@@ -26,8 +27,7 @@ description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wire
       {% for b in hw.boxes %}{% include product.html p=b icon="tv" %}{% endfor %}
     </div>
     <h3 class="compare-title">Compared</h3>
-    {% assign a = hw.boxes[0].name %}{% assign b = hw.boxes[1].name %}
-    {% include compare.html rows=hw.box_comparison a=a b=b %}
+    {% include compare.html rows=hw.box_comparison products=hw.boxes %}
   </div>
 </section>
 
@@ -40,8 +40,7 @@ description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wire
       {% for b in hw.buzzers %}{% include product.html p=b icon="buzzer" %}{% endfor %}
     </div>
     <h3 class="compare-title">Compared</h3>
-    {% assign a = hw.buzzers[0].name %}{% assign b = hw.buzzers[1].name %}
-    {% include compare.html rows=hw.buzzer_comparison a=a b=b %}
+    {% include compare.html rows=hw.buzzer_comparison products=hw.buzzers %}
     {% if hw.buzzer_note %}<p class="note">{{ hw.buzzer_note }}</p>{% endif %}
   </div>
 </section>

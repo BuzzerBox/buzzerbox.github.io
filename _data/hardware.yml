@@ -17,12 +17,12 @@ boxes:
         alt: "The back of the compact box: power, HDMI, USB and Ethernet ports, with two wireless buzzers behind it"
     points:
       - Built-in touchscreen to run the game on the box itself
-      - Plays with the wireless buzzers, so there are no cables to the teams
+      - Up to 10 wireless buzzers, so there are no cables to the teams
       - HDMI to a TV or projector, just like the BuzzerBox Classic
       - Lightweight case that's easy to bring along
   - id: classic
     name: BuzzerBox Classic
-    tagline: The full setup for events, with up to ten wired buzzers.
+    tagline: The full setup for events, with up to ten buzzers, wired or wireless.
     images:
       - src: /assets/img/hardware/classic-box-case.jpg
         alt: The classic box, a rugged orange case with the BuzzerBox badge on its front
@@ -31,7 +31,7 @@ boxes:
       - src: /assets/img/hardware/classic-box-in-use.jpg
         alt: The classic box in use, two buzzers plugged in and the display showing that buzzer 2 was first
     points:
-      - Ten ports for wired buzzers, plus wireless buzzers
+      - Up to 10 buzzers: wired on its ten XLR ports, or wireless
       - Buzzers locked by a microcontroller in hardware
       - 7-segment display and release button on the front panel
       - HDMI to a TV or projector
@@ -42,16 +42,16 @@ boxes:
     images:
     points:
 
-# Rows of the box comparison: [label, compact, classic] (the order of the first two boxes above)
+# Rows of the box comparison: [label, compact, classic, pro], in the order of the boxes above.
+# A box with a status and no values here (the Pro) shows its status once, across the whole column.
 box_comparison:
   - ["Best for", "Small parties and gatherings, on the go", "Larger events, stages, many teams"]
   - ["Computer", "Raspberry Pi Compute Module 4 on the standard CM4 IO Board", "Raspberry Pi Compute Module 4 on the BuzzerBox controller board"]
-  - ["Game master", "The built-in touchscreen, or a phone, tablet or laptop", "Phone, tablet or laptop over the box's WiFi"]
+  - ["Game master", "The built-in touchscreen, or a phone, tablet or laptop", "Phone, tablet or laptop over the box's WiFi, or over Ethernet with a USB-to-Ethernet adapter"]
   - ["Screen for the teams", "TV or projector over HDMI", "TV or projector over HDMI"]
-  - ["Wired (analog) buzzers", "—", "Up to 10, on XLR cables"]
-  - ["Case", "Lightweight case with the touchscreen built in", "Front panel with buzzer ports, 7-segment display and release button"]
-  - ["Wireless buzzers", "Yes", "Yes"]
-  - ["Who buzzed first", "The touchscreen and the TV", "7-segment display on the box, LED on the buzzer, the TV"]
+  - ["Buzzers", "Up to 10, wireless only", "Up to 10, wired (on its ten XLR ports) or wireless"]
+  - ["Case", "Lightweight case with the touchscreen built in", "Rugged touring case; inside, a front panel with the buzzer ports, 7-segment display and release button"]
+  - ["Who buzzed first is shown on", "The touchscreen and the TV", "The 7-segment display on the box, the LED on the buzzer and the TV"]
   - ["Releasing the buzzers", "Game master", "Game master or the release button on the box"]
   - ["WiFi and internet", "Own WiFi, no internet needed", "Own WiFi, no internet needed"]
 
@@ -86,13 +86,12 @@ buzzers:
     images:
     points:
 
-# Rows of the buzzer comparison: [label, analog, wireless]
+# Rows of the buzzer comparison: [label, analog, wireless, pro], in the order of the buzzers above.
 buzzer_comparison:
   - ["Works with", "BuzzerBox Classic", "BuzzerBox Compact and Classic"]
   - ["Connection", "XLR cable to the box", "The box's WiFi"]
   - ["Power", "From the box", "Battery, charged over USB from the box or any charger"]
   - ["Setup", "Plug it in", "Adopt it once over USB; after that, press to wake it"]
-  - ["How many", "Up to 10, one per port", "Up to 8"]
   - ["Telling them apart", "By port number", "By case color (e.g. \"Blue wireless buzzer\")"]
   - ["Light", "LED in the button", "Colored light: connected, low battery, adopted, …"]
   - ["Battery shown to the game master", "—", "Yes, in percent on the Feather ESP32-S3"]
