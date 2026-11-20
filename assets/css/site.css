@@ -152,9 +152,11 @@ a.card:hover { transform: translateY(-2px); border-color: var(--red); }
 .product .tagline { color: var(--text); font-size: 1.02rem; }
 .product ul { margin: 12px 0 0; padding-left: 1.1em; color: var(--muted); font-size: .95rem; }
 .compare-title { margin: 40px 0 0; font-size: 1.15rem; }
-table.compare { display: table; table-layout: fixed; min-width: 560px; background: var(--surface); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+table.compare { display: table; table-layout: fixed; min-width: 720px; background: var(--surface); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 table.compare thead th { font-size: 1rem; }
 table.compare tbody th { width: 26%; color: var(--muted); font-weight: 600; background: transparent; }
+table.compare td.compare-soon { vertical-align: middle; text-align: center; color: var(--muted); background: repeating-linear-gradient(135deg, var(--bg-alt) 0 12px, transparent 12px 24px); }
+table.compare thead .badge { font-size: .72rem; }
 .table-wrap table.compare { margin: 12px 0 0; }
 .note { color: var(--muted); font-size: .93rem; margin-top: 14px; }
 mark.todo { background: #fff3b0; color: #5a4a00; padding: 0 4px; border-radius: 4px; }

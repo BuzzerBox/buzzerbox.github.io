@@ -1,11 +1,27 @@
-{%- comment -%} A comparison table. rows: [[label, a, b], ...], a / b: column titles. {%- endcomment -%}
+{%- comment -%}
+  A comparison table with one column per product, in the same order as the cards above it.
+  rows: [[label, value for products[0], value for products[1], ...], ...]. products: the product list (for titles).
+  A product with a status and no values in any row (e.g. "Coming soon") gets one cell spanning all rows with its status.
+{%- endcomment -%}
+{%- assign products = include.products -%}
+{%- assign rows = include.rows -%}
 <div class="table-wrap">
   <table class="compare">
-    <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">{{ include.a }}</th><th scope="col">{{ include.b }}</th></tr></thead>
+    <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th>{% for p in products %}<th scope="col">{{ p.name }}{% if p.status %} <span class="badge">{{ p.status }}</span>{% endif %}</th>{% endfor %}</tr></thead>
     <tbody>
-      {% for r in include.rows %}
-      {% assign c1 = r[1] %}{% assign c2 = r[2] %}
-      <tr><th scope="row">{{ r[0] }}</th><td>{% include text.html t=c1 %}</td><td>{% include text.html t=c2 %}</td></tr>
+      {% for r in rows %}
+      <tr><th scope="row">{{ r[0] }}</th>
+        {%- for p in products -%}
+        {%- assign i = forloop.index -%}
+        {%- assign empty = true -%}
+        {%- for x in rows -%}{%- if x[i] and x[i] != "" -%}{%- assign empty = false -%}{%- endif -%}{%- endfor -%}
+        {%- if empty and p.status -%}
+          {%- if forloop.parentloop.first -%}<td class="compare-soon" rowspan="{{ rows.size }}">{{ p.status }}</td>{%- endif -%}
+        {%- else -%}
+          {%- assign c = r[i] | default: "—" -%}<td>{% include text.html t=c %}</td>
+        {%- endif -%}
+        {%- endfor -%}
+      </tr>
       {% endfor %}
     </tbody>
   </table>
