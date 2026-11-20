@@ -1,0 +1,72 @@
+---
+layout: default
+title: Veranstaltungen
+permalink: /de/veranstaltungen/
+lang: de
+ref: events
+description: Eine Quizshow auf deiner Veranstaltung? Leih dir die BuzzerBox bei uns und leite das Quiz selbst, oder schlag uns eine Veranstaltung vor, zu der wir sie mitbringen.
+---
+{% assign guide = '/docs/user/' %}{% if site.data.docs_nav %}{% assign de_guide = site.data.docs_nav | where: "lang", "de" | first %}{% if de_guide %}{% assign guide = '/de/docs/user/' %}{% endif %}{% endif %}
+<section class="hero" style="padding-bottom:24px">
+  <div class="container">
+    <p class="eyebrow">Veranstaltungen</p>
+    <h1>Eine Quizshow <em>auf deiner Veranstaltung?</em></h1>
+    <p>Du planst ein Quiz? Leih dir die BuzzerBox bei uns und leite es selbst. Ab und zu bringen wir sie auch selbst zu
+      Veranstaltungen mit: Wenn du eine kennst, auf die ein Quiz passen würde, erzähl uns davon. Wir sind in
+      Nordrhein-Westfalen zu Hause. Meld dich einfach bei uns.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#contact">Interesse? Meld dich!</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="grid grid-2">
+      <div class="card offer" id="rent">
+        {% include icon.html name="box" %}
+        <h3>Die Box leihen</h3>
+        <p>Leite das Quiz selbst. Du bekommst die Box und die Buzzer spielbereit, und wir zeigen dir, wie alles
+          funktioniert.</p>
+        <ul>
+          <li>Die <a href="{{ '/de/hardware/' | relative_url }}">BuzzerBox Classic oder Compact</a>, mit bis zu zehn Buzzern</li>
+          <li>Eine kurze Einführung bei der Abholung</li>
+          <li>Schreib dein eigenes Spiel im Browser; das <a href="{{ guide | relative_url }}">Benutzerhandbuch</a> erklärt jeden Schritt</li>
+          <li>Kein Internet nötig: Die Box bringt ihr eigenes WLAN mit</li>
+          <li>Abholung bei uns in Nordrhein-Westfalen</li>
+        </ul>
+      </div>
+      <div class="card offer" id="suggest">
+        {% include icon.html name="party" %}
+        <h3>Eine Veranstaltung vorschlagen</h3>
+        <p>Ab und zu bringen wir die BuzzerBox selbst zu Veranstaltungen mit und machen dort ein Quiz. Kennst du eine, auf
+          die das passen würde, am besten in oder nahe Nordrhein-Westfalen? Erzähl uns davon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="eyebrow">So läuft es ab</p>
+    <h2>Von der ersten Nachricht bis zum Siegertreppchen</h2>
+    <div class="grid steps" style="margin-top:24px">
+      <div class="card step">{% include icon.html name="mail" %}<h3>Kontakt aufnehmen</h3>
+        <p>Schreib uns das Datum, den Ort und ungefähr, wie viele Gäste oder Teams dabei sind.</p></div>
+      <div class="card step">{% include icon.html name="calendar" %}<h3>Gemeinsam planen</h3>
+        <p>Wir melden uns, besprechen mit dir, was du vorhast, und klären mit dir die Details.</p></div>
+      <div class="card step">{% include icon.html name="trophy" %}<h3>Der Quizabend</h3>
+        <p>Die Teams buzzern, der Fernseher zeigt, wer zuerst war, und am Ende steht das Siegertreppchen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <p class="eyebrow">Kontakt</p>
+    <h2>Kontakt aufnehmen</h2>
+    <p class="sub">Interesse, oder einfach neugierig? Erzähl uns, was du vorhast, und wir melden uns bei dir. Das Formular öffnet dein
+      E-Mail-Programm mit deiner Nachricht; gesendet wird erst, wenn du dort auf Senden drückst.</p>
+    {% include contact-form.html %}
+  </div>
+</section>

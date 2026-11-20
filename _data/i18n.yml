@@ -5,6 +5,7 @@ en:
   nav_main: Main
   hardware: Hardware
   use_cases: Use cases
+  events: Events
   docs: Docs
   language_name: English
   footer_tagline: a quiz-show buzzer system.
@@ -21,6 +22,7 @@ de:
   nav_main: Hauptmenü
   hardware: Hardware
   use_cases: Einsatzbereiche
+  events: Veranstaltungen
   docs: Doku
   language_name: Deutsch
   footer_tagline: ein Buzzer-System für Quizshows.
@@ -32,3 +34,44 @@ de:
   documentation: Dokumentation
   source_note: "Diese Seite stammt aus %s."
   suggest_change: Eine Änderung auf GitHub vorschlagen
+
+# Strings of the contact form (_includes/contact-form.html)
+contact:
+  en:
+    want: I'd like
+    want_rent: To borrow a box
+    want_suggest: To suggest an event
+    want_other: Something else
+    name: Name
+    email: Email
+    date: Date
+    place: Place
+    guests: Guests or teams
+    message: Message
+    message_hint: What's the occasion? Anything we should know?
+    optional: optional
+    submit: Write the email
+    subject: "BuzzerBox: %s"
+    salutation: Dear BuzzerBox team,
+    closing: Best regards,
+    sent: "Your mail program should open now with your message. Nothing is sent until you press send there. If it doesn't open, write to %s."
+    direct: "Or write to us directly: %s"
+  de:
+    want: Ich möchte
+    want_rent: Eine Box leihen
+    want_suggest: Eine Veranstaltung vorschlagen
+    want_other: Etwas anderes
+    name: Name
+    email: E-Mail
+    date: Datum
+    place: Ort
+    guests: Gäste oder Teams
+    message: Nachricht
+    message_hint: Was ist der Anlass? Gibt es etwas, das wir wissen sollten?
+    optional: optional
+    submit: E-Mail schreiben
+    subject: "BuzzerBox: %s"
+    salutation: Liebes BuzzerBox-Team,
+    closing: Viele Grüße
+    sent: "Dein E-Mail-Programm sollte sich jetzt mit deiner Nachricht öffnen. Gesendet wird erst, wenn du dort auf Senden drückst. Falls es sich nicht öffnet, schreib an %s."
+    direct: "Oder schreib uns direkt: %s"

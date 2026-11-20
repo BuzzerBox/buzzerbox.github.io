@@ -2,6 +2,7 @@
 {%- assign t = site.data.i18n[lang] -%}
 {%- assign prefix = "" -%}{%- if lang != site.lang -%}{%- assign prefix = "/" | append: lang -%}{%- endif -%}
 {%- if lang == "de" -%}{%- assign use_cases_url = "/de/einsatzbereiche/" -%}{%- else -%}{%- assign use_cases_url = "/use-cases/" -%}{%- endif -%}
+{%- if lang == "de" -%}{%- assign events_url = "/de/veranstaltungen/" -%}{%- else -%}{%- assign events_url = "/events/" -%}{%- endif -%}
 {%- assign hardware_url = prefix | append: "/hardware/" -%}
 {%- assign home_url = prefix | append: "/" -%}
 {%- assign docs_url = prefix | append: "/docs/" -%}
@@ -18,6 +19,7 @@
       <a href="{{ use_cases_url | relative_url }}"{% if path == use_cases_url %} aria-current="page"{% endif %}>{{ t.use_cases }}</a>
       <a href="{{ docs_url | relative_url }}"{% if path contains '/docs/' %} aria-current="page"{% endif %}>{{ t.docs }}</a>
       <a href="https://github.com/BuzzerBox" class="nav-gh">GitHub</a>
+      <a class="nav-cta" href="{{ events_url | relative_url }}"{% if path == events_url %} aria-current="page"{% endif %}>{{ t.events }}</a>
       {%- if page.ref %}{% assign versions = site.pages | where: "ref", page.ref %}{% for v in versions %}
       {%- assign vlang = v.lang | default: site.lang %}{% if vlang != lang %}
       <a href="{{ v.url | relative_url }}" class="nav-lang" hreflang="{{ vlang }}" lang="{{ vlang }}">{{ site.data.i18n[vlang].language_name }}</a>

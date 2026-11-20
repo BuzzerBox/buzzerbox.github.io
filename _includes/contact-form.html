@@ -1,0 +1,61 @@
+{%- comment -%}
+  The contact form of the events pages. GitHub Pages can't receive forms, so it opens the visitor's mail program
+  with the message filled in (to site.contact_email). Without JavaScript, the browser's own mailto form does that.
+{%- endcomment -%}
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign c = site.data.i18n.contact[lang] -%}
+{%- assign email = site.contact_email | default: "" -%}
+<form class="contact-form card" id="contact-form"{% if email != "" %} action="mailto:{{ email }}" method="post" enctype="text/plain"{% endif %}
+      data-email="{{ email }}" data-subject="{{ c.subject }}"
+      data-salutation="{{ c.salutation }}" data-closing="{{ c.closing }}">
+  <fieldset class="field">
+    <legend>{{ c.want }}</legend>
+    <div class="choices">
+      <label><input type="radio" name="want" value="{{ c.want_rent }}" checked>{% include icon.html name="box" %}<span>{{ c.want_rent }}</span></label>
+      <label><input type="radio" name="want" value="{{ c.want_suggest }}">{% include icon.html name="party" %}<span>{{ c.want_suggest }}</span></label>
+      <label><input type="radio" name="want" value="{{ c.want_other }}">{% include icon.html name="mail" %}<span>{{ c.want_other }}</span></label>
+    </div>
+  </fieldset>
+  <div class="fields-2">
+    <label class="field"><span>{{ c.name }}</span><input type="text" name="{{ c.name }}" autocomplete="name" required></label>
+    <label class="field"><span>{{ c.email }}</span><input type="email" name="{{ c.email }}" autocomplete="email" required></label>
+  </div>
+  <div class="fields-3">
+    <label class="field"><span>{{ c.date }} <small>({{ c.optional }})</small></span><input type="date" name="{{ c.date }}"></label>
+    <label class="field"><span>{{ c.place }} <small>({{ c.optional }})</small></span><input type="text" name="{{ c.place }}"></label>
+    <label class="field"><span>{{ c.guests }} <small>({{ c.optional }})</small></span><input type="text" name="{{ c.guests }}" inputmode="numeric"></label>
+  </div>
+  <label class="field"><span>{{ c.message }}</span><textarea name="{{ c.message }}" rows="5" placeholder="{{ c.message_hint }}" required></textarea></label>
+  <div class="form-actions">
+    <button class="btn btn-primary" type="submit"{% if email == "" %} disabled{% endif %}>{% include icon.html name="mail" %}{{ c.submit }}</button>
+    {%- if email != "" %}
+    <p class="note">{% capture link %}<a href="mailto:{{ email }}">{{ email }}</a>{% endcapture %}{{ c.direct | replace: "%s", link }}</p>
+    {%- else %}
+    <p class="note"><mark class="todo">TODO: set contact_email in _config.yml</mark></p>
+    {%- endif %}
+  </div>
+  {%- if email != "" %}
+  <p class="form-status" role="status" hidden>{{ c.sent | replace: "%s", email }}</p>
+  {%- endif %}
+</form>
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form || !form.dataset.email) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    // The email: salutation, the message, the details, and a closing with the sender's name.
+    var fields = [...form.querySelectorAll('input:not([type=radio]), textarea')];
+    var want = form.querySelector('[name=want]:checked').value;
+    var message = fields.pop().value.trim(), name = fields[0].value.trim(), details = [];
+    fields.slice(1).forEach(function (el) { if (el.value.trim()) details.push(el.name + ': ' + el.value.trim()); }); // the name signs it
+    var body = form.dataset.salutation + '\n\n' + message + '\n\n' + details.join('\n') +
+      '\n\n' + form.dataset.closing + '\n' + name;
+    location.href = 'mailto:' + form.dataset.email +
+      '?subject=' + encodeURIComponent(form.dataset.subject.replace('%s', want)) +
+      '&body=' + encodeURIComponent(body);
+    form.querySelector('.form-status').hidden = false;
+  });
+})();
+</script>
