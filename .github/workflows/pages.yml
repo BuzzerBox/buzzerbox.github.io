@@ -20,10 +20,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
-# The branches the docs are taken from. BuzzUI's docs (the user guide, the developer docs and the screenshots the
-# home page uses) are only on docs/update-and-user-guide until that branch is merged; then set this back to main.
+# The branches the docs are taken from. Links on the site ("This page comes from …") point to these branches too,
+# so they must exist.
 env:
-  BUZZUI_REF: docs/update-and-user-guide
+  BUZZUI_REF: main
   BUZZCONTROLLER_REF: main
 
 jobs:
