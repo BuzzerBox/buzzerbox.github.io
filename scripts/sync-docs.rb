@@ -19,6 +19,10 @@
 #     contain Angular templates with {{ }}.
 # It also writes _data/docs_nav.yml, the sidebar of the docs, in the order of SECTIONS below.
 #
+# The user guide is also in German (docs/user/de/ in BuzzUI, on the site under /de/docs/user/). A section with a
+# `lang` is only shown in the sidebar of pages in that language; one without is shown in all. A page and its
+# translation share a `ref` (its file name), so the header can link them.
+#
 # Everything it writes is generated: see .gitignore, and don't edit it here, edit it in the source repo.
 
 require "fileutils"
@@ -45,6 +49,7 @@ REPOS = {
 SECTIONS = {
   "user" => {
     title: "User guide",
+    lang: "en",
     pages: [
       ["BuzzUI", "docs/user/README.md", "docs/user/index.md", "User guide"],
       ["BuzzUI", "docs/user/quick-start.md", "docs/user/quick-start.md"],
@@ -53,6 +58,19 @@ SECTIONS = {
       ["BuzzUI", "docs/user/wireless-buzzers.md", "docs/user/wireless-buzzers.md"],
       ["BuzzUI", "docs/user/box-settings-and-updates.md", "docs/user/box-settings-and-updates.md"],
       ["BuzzUI", "docs/user/troubleshooting.md", "docs/user/troubleshooting.md"]
+    ]
+  },
+  "user-de" => {
+    title: "Benutzerhandbuch",
+    lang: "de",
+    pages: [
+      ["BuzzUI", "docs/user/de/README.md", "de/docs/user/index.md", "Benutzerhandbuch"],
+      ["BuzzUI", "docs/user/de/quick-start.md", "de/docs/user/quick-start.md"],
+      ["BuzzUI", "docs/user/de/hosting-a-game.md", "de/docs/user/hosting-a-game.md"],
+      ["BuzzUI", "docs/user/de/creating-games.md", "de/docs/user/creating-games.md"],
+      ["BuzzUI", "docs/user/de/wireless-buzzers.md", "de/docs/user/wireless-buzzers.md"],
+      ["BuzzUI", "docs/user/de/box-settings-and-updates.md", "de/docs/user/box-settings-and-updates.md"],
+      ["BuzzUI", "docs/user/de/troubleshooting.md", "de/docs/user/troubleshooting.md"]
     ]
   },
   "developer" => {
@@ -87,7 +105,7 @@ IMAGE_DIRS = [
 # Sections (by "## Heading") that are left out of the site; delete an entry to show that section again.
 SKIP_SECTIONS = ["License"].freeze
 
-GENERATED = %w[docs/user docs/developer docs/hardware].freeze # includes the copied image folders
+GENERATED = %w[docs/user docs/developer docs/hardware de/docs/user].freeze # includes the copied image folders
 IMAGE_EXT = /\.(png|jpe?g|gif|svg|webp)\z/i
 
 def site_url(site_path)
@@ -179,12 +197,18 @@ SECTIONS.each do |section, s|
       "source_url" => "#{REPOS[repo][:url]}/blob/#{REPOS[repo][:ref]}/#{src}",
       "render_with_liquid" => false
     }
+    if s[:lang]
+      front["lang"] = s[:lang]
+      front["ref"] = "docs-user-#{File.basename(dst, ".md")}"
+    end
     out = File.join(SITE, dst)
     FileUtils.mkdir_p(File.dirname(out))
     File.write(out, "#{front.to_yaml}---\n\n#{text}")
     items << { "title" => title, "url" => site_url(dst) }
   end
-  nav << { "section" => section, "title" => s[:title], "pages" => items } unless items.empty?
+  entry = { "section" => section, "title" => s[:title] }
+  entry["lang"] = s[:lang] if s[:lang]
+  nav << entry.merge("pages" => items) unless items.empty?
 end
 
 FileUtils.mkdir_p(File.join(SITE, "_data"))

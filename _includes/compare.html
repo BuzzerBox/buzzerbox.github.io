@@ -5,9 +5,10 @@
 {%- endcomment -%}
 {%- assign products = include.products -%}
 {%- assign rows = include.rows -%}
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
 <div class="table-wrap">
   <table class="compare">
-    <thead><tr><th scope="col"><span class="visually-hidden">Feature</span></th>{% for p in products %}<th scope="col">{{ p.name }}{% if p.status %} <span class="badge">{{ p.status }}</span>{% endif %}</th>{% endfor %}</tr></thead>
+    <thead><tr><th scope="col"><span class="visually-hidden">{{ site.data.i18n[lang].feature }}</span></th>{% for p in products %}<th scope="col">{{ p.name }}{% if p.status %} <span class="badge">{{ p.status }}</span>{% endif %}</th>{% endfor %}</tr></thead>
     <tbody>
       {% for r in rows %}
       <tr><th scope="row">{{ r[0] }}</th>

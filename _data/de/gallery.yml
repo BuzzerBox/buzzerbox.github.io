@@ -1,0 +1,6 @@
+# Die Fotos von „Im Einsatz“ auf /de/einsatzbereiche/: wie _data/gallery.yml, mit deutschen Alternativtexten.
+- src: /assets/img/action/race-to-buzz.jpg
+  alt: Mehrere Spieler greifen an einem Tisch im Freien nach den Buzzern, eine Hand drückt als Erste
+- src: /assets/img/action/buzzer-glow.jpg
+  alt: Ein Buzzer leuchtet rot, nachdem er gedrückt wurde, bei einem Quizabend im Wohnzimmer
+  position: 70% 50%

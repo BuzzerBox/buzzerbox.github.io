@@ -1,23 +1,26 @@
 ---
 layout: default
 ---
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
 <div class="container docs">
   <aside class="docs-nav">
     <details id="docs-nav">
-      <summary>Documentation</summary>
+      <summary>{{ t.documentation }}</summary>
       {% include docs-nav.html %}
     </details>
     <script>if (matchMedia("(min-width: 960px)").matches) document.getElementById("docs-nav").open = true;</script>
   </aside>
   <article class="prose doc">
     {% assign section = site.data.docs_nav | where: "section", page.section | first %}
-    {% if section %}<p class="eyebrow"><a href="{{ '/docs/' | relative_url }}">Docs</a> / {{ section.title }}</p>{% endif %}
+    {% if section %}<p class="eyebrow">{% if lang == site.lang %}{% assign docs_url = "/docs/" %}{% else %}{% assign docs_url = "/" | append: lang | append: "/docs/" %}{% endif %}<a href="{{ docs_url | relative_url }}">{{ site.data.i18n[lang].docs }}</a> / {{ section.title }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
     {{ content }}
     {% if page.source_url %}
     <p class="source-link">
-      This page comes from <a href="{{ page.source_url }}">{{ page.source_url | split: "/blob/" | first | split: "/" | last }}</a>.
-      <a href="{{ page.source_url | replace: '/blob/', '/edit/' }}">Suggest a change on GitHub</a>.
+      {%- capture repo_link %}<a href="{{ page.source_url }}">{{ page.source_url | split: "/blob/" | first | split: "/" | last }}</a>{% endcapture %}
+      {{ t.source_note | replace: "%s", repo_link }}
+      <a href="{{ page.source_url | replace: '/blob/', '/edit/' }}">{{ t.suggest_change }}</a>.
     </p>
     {% endif %}
   </article>

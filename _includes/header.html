@@ -1,16 +1,27 @@
-<a class="skip" href="#main">Skip to content</a>
+{%- assign lang = page.lang | default: site.lang | default: "en" -%}
+{%- assign t = site.data.i18n[lang] -%}
+{%- assign prefix = "" -%}{%- if lang != site.lang -%}{%- assign prefix = "/" | append: lang -%}{%- endif -%}
+{%- if lang == "de" -%}{%- assign use_cases_url = "/de/einsatzbereiche/" -%}{%- else -%}{%- assign use_cases_url = "/use-cases/" -%}{%- endif -%}
+{%- assign hardware_url = prefix | append: "/hardware/" -%}
+{%- assign home_url = prefix | append: "/" -%}
+{%- assign docs_url = prefix | append: "/docs/" -%}
+<a class="skip" href="#main">{{ t.skip }}</a>
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
+    <a class="brand" href="{{ home_url | relative_url }}">
       <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="" width="36" height="36">
       <span>BuzzerBox</span>
     </a>
-    <nav class="site-nav" aria-label="Main">
+    <nav class="site-nav" aria-label="{{ t.nav_main }}">
       {% assign path = page.url %}
-      <a href="{{ '/hardware/' | relative_url }}"{% if path == '/hardware/' %} aria-current="page"{% endif %}>Hardware</a>
-      <a href="{{ '/use-cases/' | relative_url }}"{% if path == '/use-cases/' %} aria-current="page"{% endif %}>Use cases</a>
-      <a href="{{ '/docs/' | relative_url }}"{% if path contains '/docs/' %} aria-current="page"{% endif %}>Docs</a>
+      <a href="{{ hardware_url | relative_url }}"{% if path == hardware_url %} aria-current="page"{% endif %}>{{ t.hardware }}</a>
+      <a href="{{ use_cases_url | relative_url }}"{% if path == use_cases_url %} aria-current="page"{% endif %}>{{ t.use_cases }}</a>
+      <a href="{{ docs_url | relative_url }}"{% if path contains '/docs/' %} aria-current="page"{% endif %}>{{ t.docs }}</a>
       <a href="https://github.com/BuzzerBox" class="nav-gh">GitHub</a>
+      {%- if page.ref %}{% assign versions = site.pages | where: "ref", page.ref %}{% for v in versions %}
+      {%- assign vlang = v.lang | default: site.lang %}{% if vlang != lang %}
+      <a href="{{ v.url | relative_url }}" class="nav-lang" hreflang="{{ vlang }}" lang="{{ vlang }}">{{ site.data.i18n[vlang].language_name }}</a>
+      {%- endif %}{% endfor %}{% endif %}
     </nav>
   </div>
 </header>

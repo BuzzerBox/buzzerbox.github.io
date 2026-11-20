@@ -1,0 +1,69 @@
+---
+layout: default
+title: Hardware
+permalink: /de/hardware/
+lang: de
+ref: hardware
+description: Die BuzzerBox Compact, Classic und Pro und die Buzzer Analog, Wireless und Pro im Vergleich.
+---
+{% assign hw = site.data.de.hardware %}
+<section class="hero" style="padding-bottom:16px">
+  <div class="container">
+    <p class="eyebrow">Hardware</p>
+    <h1>Box aussuchen, <em>Buzzer aussuchen.</em></h1>
+    <p>Zwei Boxen und zwei Arten von Buzzern, mit bis zu zehn Buzzern pro Spiel. Die BuzzerBox Compact spielt nur mit
+      Funkbuzzern, die BuzzerBox Classic mit kabelgebundenen oder Funkbuzzern. Alle laufen mit derselben
+      BuzzerBox-Software, bringen ihr eigenes WLAN mit und brauchen kein Internet.</p>
+    <nav class="pills" aria-label="Auf dieser Seite">
+      <a href="#boxes">Boxen</a><a href="#buzzers">Buzzer</a><a href="#build">Selbst bauen</a>
+    </nav>
+  </div>
+</section>
+
+<section class="section" id="boxes">
+  <div class="container">
+    <p class="eyebrow">Die Boxen</p>
+    <h2>Compact, Classic oder Pro</h2>
+    <p class="sub">Die Box leitet das Spiel: Sie öffnet das WLAN, hält das Spiel bereit und zeigt es auf dem Bildschirm.</p>
+    <div class="grid media-thumbs">
+      {% for b in hw.boxes %}{% include product.html p=b icon="tv" %}{% endfor %}
+    </div>
+    <h3 class="compare-title">Im Vergleich</h3>
+    {% include compare.html rows=hw.box_comparison products=hw.boxes %}
+  </div>
+</section>
+
+<section class="section section-alt" id="buzzers">
+  <div class="container">
+    <p class="eyebrow">Die Buzzer</p>
+    <h2>Analog, Wireless oder Pro</h2>
+    <p class="sub">Egal welche Art: Der erste Druck sperrt alle anderen, und die Spielleitung bewertet die Antwort.</p>
+    <div class="grid media-square">
+      {% for b in hw.buzzers %}{% include product.html p=b icon="buzzer" %}{% endfor %}
+    </div>
+    <h3 class="compare-title">Im Vergleich</h3>
+    {% include compare.html rows=hw.buzzer_comparison products=hw.buzzers %}
+    {% if hw.buzzer_note %}<p class="note">{{ hw.buzzer_note }}</p>{% endif %}
+  </div>
+</section>
+
+<section class="section" id="build">
+  <div class="container">
+    <p class="eyebrow">Selbst bauen</p>
+    <h2>Konstruktionsdateien und Firmware</h2>
+    <p class="sub">Schaltpläne und Platinen in EAGLE und KiCad, die Frontplatte in Fusion 360 und die gesamte Firmware
+      liegen im Repository <a href="{{ site.repos.controller }}">BuzzController</a>. Die Dokumentation ist auf Englisch.</p>
+    <div class="grid">
+      <a class="card" href="{{ '/docs/hardware/controller.html' | relative_url }}" hreflang="en">{% include icon.html name="chip" %}<h3>Controller-Firmware</h3>
+        <p>Das serielle Protokoll, Bauen und Flashen mit PlatformIO und einem AVR-ISP-Programmer.</p></a>
+      <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}" hreflang="en">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
+        <p>Wie er sich verhält, seine Lichter, das UDP-Protokoll und das Flashen eines Feather V2 oder ESP32-S3.</p></a>
+      <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}" hreflang="en">{% include icon.html name="code" %}<h3>Eine Box einrichten</h3>
+        <p>Das Raspberry-Pi-Image bauen und flashen, und Box-Einstellungen wie <code>ANALOG_BUZZERS</code>.</p></a>
+      <a class="card" href="{{ site.repos.controller }}/tree/main/cad">{% include icon.html name="edit" %}<h3>CAD-Dateien</h3>
+        <p>Schaltpläne und Platinen in EAGLE und KiCad und die Frontplatte in Fusion 360, auf GitHub.</p></a>
+    </div>
+  </div>
+</section>
+
+{% include product-thumbs.html %}

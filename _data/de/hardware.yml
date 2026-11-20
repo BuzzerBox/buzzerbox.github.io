@@ -1,0 +1,96 @@
+# Inhalt von /de/hardware/: die deutsche Fassung von _data/hardware.yml. Aufbau und Bilder wie dort; bei Änderungen
+# an der englischen Fassung bitte auch hier nachziehen.
+
+boxes:
+  - id: compact
+    name: BuzzerBox Compact
+    tagline: Alles in einem leichten Gehäuse, mit eingebautem Touchscreen. Ideal für kleine Partys.
+    images:
+      - src: /assets/img/hardware/compact-box-front.jpg
+        alt: Die Compact-Box, auf ihrem Touchscreen die Spielleitung, davor Funkbuzzer auf dem Tisch
+      - src: /assets/img/hardware/compact-box-back.jpg
+        alt: "Die Rückseite der Compact-Box: Anschlüsse für Strom, HDMI, USB und Ethernet, dahinter zwei Funkbuzzer"
+    points:
+      - Eingebauter Touchscreen, um das Spiel direkt an der Box zu leiten
+      - Bis zu 10 Funkbuzzer, also keine Kabel zu den Teams
+      - HDMI für Fernseher oder Beamer, genau wie bei der BuzzerBox Classic
+      - Leichtes Gehäuse, das sich einfach mitnehmen lässt
+  - id: classic
+    name: BuzzerBox Classic
+    tagline: Die komplette Ausstattung für Veranstaltungen, mit bis zu zehn Buzzern, kabelgebunden oder per Funk.
+    images:
+      - src: /assets/img/hardware/classic-box-case.jpg
+        alt: Die Classic-Box, ein robustes orangefarbenes Case mit dem BuzzerBox-Logo vorne
+      - src: /assets/img/hardware/classic-box-panel.jpg
+        alt: "Die geöffnete Classic-Box: zehn nummerierte XLR-Buchsen, Strom, HDMI, USB, ein Reset-Taster und die 7-Segment-Anzeige"
+      - src: /assets/img/hardware/classic-box-in-use.jpg
+        alt: Die Classic-Box im Einsatz, zwei Buzzer eingesteckt, die Anzeige zeigt, dass Buzzer 2 der Erste war
+    points:
+      - "Bis zu 10 Buzzer: kabelgebunden an den zehn XLR-Buchsen oder per Funk"
+      - Ein Mikrocontroller sperrt die Buzzer in Hardware
+      - 7-Segment-Anzeige und Freigabe-Taster auf der Frontplatte
+      - HDMI für Fernseher oder Beamer
+  - id: pro
+    name: BuzzerBox Pro
+    status: Demnächst
+    tagline: Die nächste BuzzerBox ist in Arbeit. Mehr bald.
+    images:
+    points:
+
+# Zeilen des Box-Vergleichs: [Merkmal, Compact, Classic, Pro], in der Reihenfolge der Boxen oben.
+box_comparison:
+  - ["Ideal für", "Kleine Partys und Treffen, unterwegs", "Größere Veranstaltungen, Bühnen, viele Teams"]
+  - ["Computer", "Raspberry Pi Compute Module 4 auf dem Standard-CM4-IO-Board", "Raspberry Pi Compute Module 4 auf dem BuzzerBox-Controller-Board"]
+  - ["Spielleitung", "Der eingebaute Touchscreen oder ein Handy, Tablet oder Laptop", "Handy, Tablet oder Laptop über das WLAN der Box oder über Ethernet mit einem USB-Ethernet-Adapter"]
+  - ["Bildschirm für die Teams", "Fernseher oder Beamer über HDMI", "Fernseher oder Beamer über HDMI"]
+  - ["Buzzer", "Bis zu 10, nur per Funk", "Bis zu 10, kabelgebunden (an den zehn XLR-Buchsen) oder per Funk"]
+  - ["Gehäuse", "Leichtes Gehäuse mit eingebautem Touchscreen", "Robustes Tour-Case; darin eine Frontplatte mit den Buzzer-Buchsen, der 7-Segment-Anzeige und dem Freigabe-Taster"]
+  - ["Wer zuerst gebuzzert hat, zeigt", "Der Touchscreen und der Fernseher", "Die 7-Segment-Anzeige an der Box, die LED am Buzzer und der Fernseher"]
+  - ["Buzzer freigeben", "Spielleitung", "Spielleitung oder der Freigabe-Taster an der Box"]
+  - ["WLAN und Internet", "Eigenes WLAN, kein Internet nötig", "Eigenes WLAN, kein Internet nötig"]
+
+buzzers:
+  - id: analog
+    name: Buzzer Analog
+    tagline: Ein großer Knopf am Kabel. Nichts zu laden, nichts einzurichten.
+    images:
+      - src: /assets/img/hardware/analog-buzzers.jpg
+        alt: Zwei analoge Buzzer mit langen XLR-Kabeln, die zur Classic-Box führen
+        fit: square
+    points:
+      - Wird mit einem XLR-Kabel an die BuzzerBox Classic angeschlossen
+      - Leuchtet auf, wenn er als Erster gedrückt wurde
+      - Vom Mikrocontroller der Box in Hardware gesperrt, innerhalb von Mikrosekunden
+  - id: wireless
+    name: Buzzer Wireless
+    tagline: Mit Akku und ohne Kabel, für Teams, die im ganzen Raum verteilt sind.
+    images:
+      - src: /assets/img/hardware/wireless-buzzers.jpg
+        alt: Zwei Funkbuzzer mit schwarzen Kuppeln, einer in einem gelben und einer in einem blauen Gehäuse
+        fit: square
+    points:
+      - Verbindet sich mit dem WLAN der Box und schläft, bis sein Knopf gedrückt wird
+      - Wird einmal angelernt, indem man ihn per USB an die Box steckt
+      - Benannt nach der Farbe seines Gehäuses, die die Bildschirme für sein Team verwenden
+      - Seine Uhr ist mit der Box synchronisiert, damit wirklich der erste Druck gewinnt
+  - id: pro-buzzer
+    name: Buzzer Pro
+    status: Demnächst
+    tagline: Ein digitaler Buzzer, der am Kabel bleibt. Mehr bald.
+    images:
+    points:
+
+# Zeilen des Buzzer-Vergleichs: [Merkmal, Analog, Wireless, Pro], in der Reihenfolge der Buzzer oben.
+buzzer_comparison:
+  - ["Funktioniert mit", "BuzzerBox Classic", "BuzzerBox Compact und Classic"]
+  - ["Verbindung", "XLR-Kabel zur Box", "Das WLAN der Box"]
+  - ["Stromversorgung", "Über die Box", "Akku, geladen über USB an der Box oder einem beliebigen Ladegerät"]
+  - ["Einrichtung", "Einstecken", "Einmal per USB anlernen; danach zum Aufwecken drücken"]
+  - ["Unterscheidung", "Nach Buchsennummer", "Nach Gehäusefarbe (z. B. „Blauer Funkbuzzer“)"]
+  - ["Licht", "LED im Knopf", "Farbiges Licht: verbunden, Akku schwach, angelernt, …"]
+  - ["Akkustand für die Spielleitung", "—", "Ja, in Prozent beim Feather ESP32-S3"]
+  - ["Innen", "Knopf und LED", "Adafruit ESP32 Feather V2 oder Feather ESP32-S3 und ein großer Knopf"]
+
+buzzer_note: >-
+  Ein Spiel wird entweder mit den analogen oder mit den Funkbuzzern gespielt, nicht mit beiden gleichzeitig. Das
+  wählst du beim Vorbereiten des Spiels.

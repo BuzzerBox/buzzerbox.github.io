@@ -1,0 +1,12 @@
+{%- comment -%} Lets the thumbnails of a product card switch its main photo. {%- endcomment -%}
+<script>
+  document.querySelectorAll('.product').forEach(function (card) {
+    var main = card.querySelector('[data-main]');
+    card.querySelectorAll('.thumb').forEach(function (t) {
+      t.addEventListener('click', function () {
+        main.src = t.dataset.src; main.alt = t.dataset.alt; main.classList.toggle('contain', t.dataset.fit === 'contain'); main.classList.toggle('square', t.dataset.fit === 'square');
+        card.querySelectorAll('.thumb').forEach(function (o) { o.setAttribute('aria-pressed', String(o === t)); });
+      });
+    });
+  });
+</script>
