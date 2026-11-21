@@ -50,18 +50,14 @@ description: Die BuzzerBox Compact, Classic und Pro und die Buzzer Analog, Wirel
 <section class="section" id="build">
   <div class="container">
     <p class="eyebrow">Selbst bauen</p>
-    <h2>Konstruktionsdateien und Firmware</h2>
-    <p class="sub">Schaltpläne und Platinen in EAGLE und KiCad, die Frontplatte in Fusion 360 und die gesamte Firmware
-      liegen im Repository <a href="{{ site.repos.controller }}">BuzzController</a>. Die Dokumentation ist auf Englisch.</p>
+    <h2>Firmware und das Image der Box</h2>
+    <p class="sub">Die Firmware der Funkbuzzer und das Image der Box liegen im Repository
+      <a href="{{ site.repos.ui }}">BuzzerBox</a>. Die Dokumentation ist auf Englisch.</p>
     <div class="grid">
-      <a class="card" href="{{ '/docs/hardware/controller.html' | relative_url }}" hreflang="en">{% include icon.html name="chip" %}<h3>Controller-Firmware</h3>
-        <p>Das serielle Protokoll, Bauen und Flashen mit PlatformIO und einem AVR-ISP-Programmer.</p></a>
       <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}" hreflang="en">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
         <p>Wie er sich verhält, seine Lichter, das UDP-Protokoll und das Flashen eines Feather V2 oder ESP32-S3.</p></a>
       <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}" hreflang="en">{% include icon.html name="code" %}<h3>Eine Box einrichten</h3>
         <p>Das Raspberry-Pi-Image bauen und flashen, und Box-Einstellungen wie <code>ANALOG_BUZZERS</code>.</p></a>
-      <a class="card" href="{{ site.repos.controller }}/tree/main/cad">{% include icon.html name="edit" %}<h3>CAD-Dateien</h3>
-        <p>Schaltpläne und Platinen in EAGLE und KiCad und die Frontplatte in Fusion 360, auf GitHub.</p></a>
     </div>
   </div>
 </section>

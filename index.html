@@ -105,42 +105,26 @@ ref: home
 
 <section class="section section-alt">
   <div class="container">
-    <p class="eyebrow">The projects</p>
-    <h2>Software and hardware</h2>
-    <p class="sub">The BuzzerBox is made of two projects, both on GitHub.</p>
+    <p class="eyebrow">Open source</p>
+    <h2>The software</h2>
+    <p class="sub">The software of the BuzzerBox and the firmware of its wireless buzzers are on GitHub.</p>
     <div class="grid grid-2">
       <div class="card project">
         {% include icon.html name="code" %}
-        <h3>BuzzUI</h3>
-        <span class="tag">Node.js · Angular · Ansible</span>
-        <p>The web app and the system of the box: the game server, the game master and screen app, the game editor, and
-          the image that turns a Raspberry Pi into a BuzzerBox.</p>
+        <h3>BuzzerBox</h3>
+        <span class="tag">Node.js · Angular · Ansible · ESP32</span>
+        <p>The web app and the system of the box: the game server, the game master and screen app, the game editor, the
+          image that turns a Raspberry Pi into a BuzzerBox, and the firmware of the wireless buzzers.</p>
         <ul>
           <li>Game server holds the state, browsers connect over WebSockets</li>
           <li>German and English, screen themes, media library</li>
           <li>Reproducible Raspberry Pi OS image, signed update bundles</li>
+          <li>Battery-powered ESP32 buzzers over WiFi</li>
         </ul>
         <div class="links">
           <a href="{{ site.repos.ui }}">Repository</a>
           <a href="{{ '/docs/developer/architecture.html' | relative_url }}">Architecture</a>
           <a href="{{ '/docs/developer/development.html' | relative_url }}">Development setup</a>
-        </div>
-      </div>
-      <div class="card project">
-        {% include icon.html name="chip" %}
-        <h3>BuzzController</h3>
-        <span class="tag">ATmega328P · ESP32 · EAGLE / KiCad</span>
-        <p>The hardware: the controller board with the Compute Module, the XLR board and panel, the firmware that locks
-          the first buzzer, and the wireless buzzers.</p>
-        <ul>
-          <li>10 buzzers with LEDs, a 7-segment display and a release button</li>
-          <li>Serial protocol with heartbeat to the Raspberry Pi</li>
-          <li>Battery-powered ESP32 buzzers over WiFi</li>
-        </ul>
-        <div class="links">
-          <a href="{{ site.repos.controller }}">Repository</a>
-          <a href="{{ '/hardware/' | relative_url }}">Hardware versions</a>
-          <a href="{{ '/docs/hardware/controller.html' | relative_url }}">Firmware docs</a>
         </div>
       </div>
     </div>

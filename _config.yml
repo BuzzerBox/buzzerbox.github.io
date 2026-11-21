@@ -12,8 +12,7 @@ lang: en
 contact_email: buzzerbox@goeffel.rip
 
 repos:
-  ui: https://github.com/BuzzerBox/BuzzUI
-  controller: https://github.com/BuzzerBox/BuzzController
+  ui: https://github.com/BuzzerBox/BuzzerBox
   site: https://github.com/BuzzerBox/buzzerbox.github.io
 
 markdown: kramdown

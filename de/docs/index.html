@@ -7,7 +7,7 @@ ref: docs
 description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und Hardware-Bastler.
 ---
 {%- comment -%}
-  The German user guide (built from BuzzUI's docs/user/de/), or the English one while BuzzUI doesn't have it yet.
+  The German user guide (built from BuzzerBox's docs/user/de/), or the English one while BuzzerBox doesn't have it yet.
   The software and hardware docs are only in English.
 {%- endcomment -%}
 {%- assign guide = site.data.docs_nav | where: "lang", "de" | first -%}
@@ -19,8 +19,8 @@ description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und
   <div class="container">
     <p class="eyebrow">Dokumentation</p>
     <h1>Doku</h1>
-    <p>Wähle die Anleitung für das, was du vorhast. Die Doku kommt direkt aus den Repositorys
-      <a href="{{ site.repos.ui }}">BuzzUI</a> und <a href="{{ site.repos.controller }}">BuzzController</a>.
+    <p>Wähle die Anleitung für das, was du vorhast. Die Doku kommt direkt aus dem Repository
+      <a href="{{ site.repos.ui }}">BuzzerBox</a>.
       Das Benutzerhandbuch gibt es auf Deutsch, die Doku zu Software und Hardware nur auf Englisch.</p>
   </div>
 </section>
@@ -41,8 +41,8 @@ description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und
       {% if software %}
       <div class="card">
         {% include icon.html name="code" %}
-        <h3>Software (BuzzUI) <span class="badge">Englisch</span></h3>
-        <p>Für Entwickler: BuzzUI auf dem eigenen Computer starten, Architektur, Konfiguration, Dateiformate, Releases und
+        <h3>Software (BuzzerBox) <span class="badge">Englisch</span></h3>
+        <p>Für Entwickler: BuzzerBox auf dem eigenen Computer starten, Architektur, Konfiguration, Dateiformate, Releases und
           das Image der Box.</p>
         <ul style="margin:14px 0 0;padding-left:1.1em" lang="en">
           {% for p in software.pages %}<li><a href="{{ p.url | relative_url }}" hreflang="en">{{ p.title }}</a></li>{% endfor %}
@@ -52,8 +52,8 @@ description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und
       {% if hardware %}
       <div class="card">
         {% include icon.html name="chip" %}
-        <h3>Hardware &amp; Firmware (BuzzController) <span class="badge">Englisch</span></h3>
-        <p>Für Bastler: das Controller-Board und seine Firmware, die Funkbuzzer und ihre Protokolle.</p>
+        <h3>Hardware &amp; Firmware <span class="badge">Englisch</span></h3>
+        <p>Für Bastler: die Funkbuzzer, ihre Firmware und ihre Protokolle.</p>
         <ul style="margin:14px 0 0;padding-left:1.1em" lang="en">
           {% for p in hardware.pages %}<li><a href="{{ p.url | relative_url }}" hreflang="en">{{ p.title }}</a></li>{% endfor %}
         </ul>
