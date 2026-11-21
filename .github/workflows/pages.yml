@@ -3,7 +3,7 @@ name: Build and deploy
 on:
   push:
     branches: [main]
-  # Pick up doc changes in BuzzUI and BuzzController: daily, by hand, or when one of them sends a
+  # Pick up doc changes in BuzzerBox and BuzzController: daily, by hand, or when one of them sends a
   # repository_dispatch of type "docs-updated" (see README.md).
   schedule:
     - cron: "17 4 * * *"
@@ -23,7 +23,7 @@ concurrency:
 # The branches the docs are taken from. Links on the site ("This page comes from …") point to these branches too,
 # so they must exist.
 env:
-  BUZZUI_REF: main
+  BUZZERBOX_REF: main
   BUZZCONTROLLER_REF: main
 
 jobs:
@@ -34,9 +34,9 @@ jobs:
 
       - uses: actions/checkout@v4
         with:
-          repository: BuzzerBox/BuzzUI
-          ref: ${{ env.BUZZUI_REF }}
-          path: _sources/BuzzUI
+          repository: BuzzerBox/BuzzerBox
+          ref: ${{ env.BUZZERBOX_REF }}
+          path: _sources/BuzzerBox
       - uses: actions/checkout@v4
         with:
           repository: BuzzerBox/BuzzController
@@ -49,7 +49,7 @@ jobs:
           bundler-cache: true
 
       - name: Sync the docs
-        run: ruby scripts/sync-docs.rb _sources/BuzzUI _sources/BuzzController
+        run: ruby scripts/sync-docs.rb _sources/BuzzerBox _sources/BuzzController
 
       - uses: actions/configure-pages@v5
         id: pages

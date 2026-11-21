@@ -10,7 +10,7 @@ description: >-
   kein Internet.
 ---
 {% assign img = '/docs/user/images/' | relative_url %}
-{%- comment -%} The German user guide, or the English one while BuzzUI doesn't have it yet. {%- endcomment -%}
+{%- comment -%} The German user guide, or the English one while BuzzerBox doesn't have it yet. {%- endcomment -%}
 {% assign guide = '/docs/user/' %}{% if site.data.docs_nav %}{% assign de_guide = site.data.docs_nav | where: "lang", "de" | first %}{% if de_guide %}{% assign guide = '/de/docs/user/' %}{% endif %}{% endif %}
 <section class="hero">
   <div class="container hero-grid">
@@ -129,14 +129,15 @@ description: >-
     <div class="grid grid-2">
       <div class="card project">
         {% include icon.html name="code" %}
-        <h3>BuzzUI</h3>
-        <span class="tag">Node.js · Angular · Ansible</span>
-        <p>Die Web-App und das System der Box: der Spielserver, die App für Spielleitung und Anzeige, der Spiel-Editor und
-          das Image, das aus einem Raspberry Pi eine BuzzerBox macht.</p>
+        <h3>BuzzerBox</h3>
+        <span class="tag">Node.js · Angular · Ansible · ESP32</span>
+        <p>Die Web-App und das System der Box: der Spielserver, die App für Spielleitung und Anzeige, der Spiel-Editor, das
+          Image, das aus einem Raspberry Pi eine BuzzerBox macht, und die Firmware der Funkbuzzer.</p>
         <ul>
           <li>Der Spielserver hält den Zustand, Browser verbinden sich über WebSockets</li>
           <li>Deutsch und Englisch, Designs für die Anzeige, Medienbibliothek</li>
           <li>Reproduzierbares Raspberry-Pi-OS-Image, signierte Update-Pakete</li>
+          <li>ESP32-Buzzer mit Akku über WLAN</li>
         </ul>
         <div class="links">
           <a href="{{ site.repos.ui }}">Repository</a>
@@ -147,13 +148,12 @@ description: >-
       <div class="card project">
         {% include icon.html name="chip" %}
         <h3>BuzzController</h3>
-        <span class="tag">ATmega328P · ESP32 · EAGLE / KiCad</span>
-        <p>Die Hardware: das Controller-Board mit dem Compute Module, die XLR-Platine und die Frontplatte, die Firmware, die
-          den ersten Buzzer sperrt, und die Funkbuzzer.</p>
+        <span class="tag">ATmega328P · EAGLE / KiCad</span>
+        <p>Die Hardware: das Controller-Board mit dem Compute Module, die XLR-Platine und die Frontplatte und die Firmware,
+          die den ersten Buzzer sperrt.</p>
         <ul>
           <li>10 Buzzer mit LEDs, eine 7-Segment-Anzeige und ein Freigabe-Taster</li>
           <li>Serielles Protokoll mit Heartbeat zum Raspberry Pi</li>
-          <li>ESP32-Buzzer mit Akku über WLAN</li>
         </ul>
         <div class="links">
           <a href="{{ site.repos.controller }}">Repository</a>

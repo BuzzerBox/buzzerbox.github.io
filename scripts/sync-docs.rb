@@ -1,12 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Copies the documentation of BuzzUI and BuzzController into the site.
+# Copies the documentation of BuzzerBox (formerly BuzzUI) and BuzzController into the site.
 #
-#   ruby scripts/sync-docs.rb [BUZZUI_DIR] [BUZZCONTROLLER_DIR]
+#   ruby scripts/sync-docs.rb [BUZZERBOX_DIR] [BUZZCONTROLLER_DIR]
 #
-# The directories default to $BUZZUI_DIR / $BUZZCONTROLLER_DIR, then to ../BuzzUI and ../BuzzController.
-# $BUZZUI_REF / $BUZZCONTROLLER_REF name the branch the checkouts are on (default main); links to GitHub use it.
+# The directories default to $BUZZERBOX_DIR / $BUZZCONTROLLER_DIR, then to ../BuzzerBox (or ../BuzzUI, a checkout
+# from before the rename) and ../BuzzController.
+# $BUZZERBOX_REF / $BUZZCONTROLLER_REF name the branch the checkouts are on (default main); links to GitHub use it.
 #
 # A page or image folder that is missing in a checkout is skipped with a warning, so a doc that isn't merged yet
 # doesn't break the deploy; links to it then go to GitHub.
@@ -19,7 +20,7 @@
 #     contain Angular templates with {{ }}.
 # It also writes _data/docs_nav.yml, the sidebar of the docs, in the order of SECTIONS below.
 #
-# The user guide is also in German (docs/user/de/ in BuzzUI, on the site under /de/docs/user/). A section with a
+# The user guide is also in German (docs/user/de/ in BuzzerBox, on the site under /de/docs/user/). A section with a
 # `lang` is only shown in the sidebar of pages in that language; one without is shown in all. A page and its
 # translation share a `ref` (its file name), so the header can link them.
 #
@@ -32,10 +33,12 @@ require "yaml"
 SITE = File.expand_path("..", __dir__)
 
 REPOS = {
-  "BuzzUI" => {
-    dir: ARGV[0] || ENV["BUZZUI_DIR"] || File.join(SITE, "..", "BuzzUI"),
-    url: "https://github.com/BuzzerBox/BuzzUI",
-    ref: ENV.fetch("BUZZUI_REF", "").then { |r| r.empty? ? "main" : r }
+  "BuzzerBox" => {
+    dir: ARGV[0] || ENV["BUZZERBOX_DIR"] ||
+      %w[BuzzerBox BuzzUI].map { |d| File.join(SITE, "..", d) }.find { |d| File.directory?(d) } ||
+      File.join(SITE, "..", "BuzzerBox"),
+    url: "https://github.com/BuzzerBox/BuzzerBox",
+    ref: ENV.fetch("BUZZERBOX_REF", "").then { |r| r.empty? ? "main" : r }
   },
   "BuzzController" => {
     dir: ARGV[1] || ENV["BUZZCONTROLLER_DIR"] || File.join(SITE, "..", "BuzzController"),
@@ -51,54 +54,54 @@ SECTIONS = {
     title: "User guide",
     lang: "en",
     pages: [
-      ["BuzzUI", "docs/user/README.md", "docs/user/index.md", "User guide"],
-      ["BuzzUI", "docs/user/quick-start.md", "docs/user/quick-start.md"],
-      ["BuzzUI", "docs/user/hosting-a-game.md", "docs/user/hosting-a-game.md"],
-      ["BuzzUI", "docs/user/creating-games.md", "docs/user/creating-games.md"],
-      ["BuzzUI", "docs/user/wireless-buzzers.md", "docs/user/wireless-buzzers.md"],
-      ["BuzzUI", "docs/user/box-settings-and-updates.md", "docs/user/box-settings-and-updates.md"],
-      ["BuzzUI", "docs/user/troubleshooting.md", "docs/user/troubleshooting.md"]
+      ["BuzzerBox", "docs/user/README.md", "docs/user/index.md", "User guide"],
+      ["BuzzerBox", "docs/user/quick-start.md", "docs/user/quick-start.md"],
+      ["BuzzerBox", "docs/user/hosting-a-game.md", "docs/user/hosting-a-game.md"],
+      ["BuzzerBox", "docs/user/creating-games.md", "docs/user/creating-games.md"],
+      ["BuzzerBox", "docs/user/wireless-buzzers.md", "docs/user/wireless-buzzers.md"],
+      ["BuzzerBox", "docs/user/box-settings-and-updates.md", "docs/user/box-settings-and-updates.md"],
+      ["BuzzerBox", "docs/user/troubleshooting.md", "docs/user/troubleshooting.md"]
     ]
   },
   "user-de" => {
     title: "Benutzerhandbuch",
     lang: "de",
     pages: [
-      ["BuzzUI", "docs/user/de/README.md", "de/docs/user/index.md", "Benutzerhandbuch"],
-      ["BuzzUI", "docs/user/de/quick-start.md", "de/docs/user/quick-start.md"],
-      ["BuzzUI", "docs/user/de/hosting-a-game.md", "de/docs/user/hosting-a-game.md"],
-      ["BuzzUI", "docs/user/de/creating-games.md", "de/docs/user/creating-games.md"],
-      ["BuzzUI", "docs/user/de/wireless-buzzers.md", "de/docs/user/wireless-buzzers.md"],
-      ["BuzzUI", "docs/user/de/box-settings-and-updates.md", "de/docs/user/box-settings-and-updates.md"],
-      ["BuzzUI", "docs/user/de/troubleshooting.md", "de/docs/user/troubleshooting.md"]
+      ["BuzzerBox", "docs/user/de/README.md", "de/docs/user/index.md", "Benutzerhandbuch"],
+      ["BuzzerBox", "docs/user/de/quick-start.md", "de/docs/user/quick-start.md"],
+      ["BuzzerBox", "docs/user/de/hosting-a-game.md", "de/docs/user/hosting-a-game.md"],
+      ["BuzzerBox", "docs/user/de/creating-games.md", "de/docs/user/creating-games.md"],
+      ["BuzzerBox", "docs/user/de/wireless-buzzers.md", "de/docs/user/wireless-buzzers.md"],
+      ["BuzzerBox", "docs/user/de/box-settings-and-updates.md", "de/docs/user/box-settings-and-updates.md"],
+      ["BuzzerBox", "docs/user/de/troubleshooting.md", "de/docs/user/troubleshooting.md"]
     ]
   },
   "developer" => {
-    title: "Software (BuzzUI)",
+    title: "Software (BuzzerBox)",
     pages: [
-      ["BuzzUI", "docs/development.md", "docs/developer/development.md"],
-      ["BuzzUI", "docs/architecture.md", "docs/developer/architecture.md"],
-      ["BuzzUI", "server/README.md", "docs/developer/server.md"],
-      ["BuzzUI", "client/README.md", "docs/developer/client.md"],
-      ["BuzzUI", "docs/configuration.md", "docs/developer/configuration.md"],
-      ["BuzzUI", "docs/box-settings.md", "docs/developer/box-settings.md"],
-      ["BuzzUI", "docs/game-file-format.md", "docs/developer/game-file-format.md"],
-      ["BuzzUI", "docs/operations.md", "docs/developer/operations.md"],
-      ["BuzzUI", "provisioning/README.md", "docs/developer/provisioning.md", "Provisioning"]
+      ["BuzzerBox", "docs/development.md", "docs/developer/development.md"],
+      ["BuzzerBox", "docs/architecture.md", "docs/developer/architecture.md"],
+      ["BuzzerBox", "server/README.md", "docs/developer/server.md"],
+      ["BuzzerBox", "client/README.md", "docs/developer/client.md"],
+      ["BuzzerBox", "docs/configuration.md", "docs/developer/configuration.md"],
+      ["BuzzerBox", "docs/box-settings.md", "docs/developer/box-settings.md"],
+      ["BuzzerBox", "docs/game-file-format.md", "docs/developer/game-file-format.md"],
+      ["BuzzerBox", "docs/operations.md", "docs/developer/operations.md"],
+      ["BuzzerBox", "provisioning/README.md", "docs/developer/provisioning.md", "Provisioning"]
     ]
   },
   "hardware" => {
-    title: "Hardware & firmware (BuzzController)",
+    title: "Hardware & firmware",
     pages: [
       ["BuzzController", "README.md", "docs/hardware/controller.md", "Controller board"],
-      ["BuzzController", "wireless/README.md", "docs/hardware/wireless-buzzer.md"]
+      ["BuzzerBox", "firmware/wireless-buzzer/README.md", "docs/hardware/wireless-buzzer.md"]
     ]
   }
 }.freeze
 
 # Image folders that are copied as they are: [repo, source dir, site dir]
 IMAGE_DIRS = [
-  ["BuzzUI", "docs/user/images", "docs/user/images"],
+  ["BuzzerBox", "docs/user/images", "docs/user/images"],
   ["BuzzController", "docs/images", "docs/hardware/images"]
 ].freeze
 

@@ -9,14 +9,14 @@ description: The BuzzerBox documentation for hosts, developers and hardware buil
     <p class="eyebrow">Documentation</p>
     <h1>Docs</h1>
     <p>Pick the guide for what you want to do. The docs come straight from the
-      <a href="{{ site.repos.ui }}">BuzzUI</a> and <a href="{{ site.repos.controller }}">BuzzController</a> repositories.</p>
+      <a href="{{ site.repos.ui }}">BuzzerBox</a> and <a href="{{ site.repos.controller }}">BuzzController</a> repositories.</p>
   </div>
 </section>
 <section class="section" style="padding-top:24px">
   <div class="container">
     <div class="grid">
       {% assign icons = "book,code,chip" | split: "," %}
-      {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzUI on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the controller board and its firmware, the wireless buzzers and their protocols." | split: "|" %}
+      {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzerBox on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the controller board and its firmware, the wireless buzzers and their protocols." | split: "|" %}
       {% assign sections = site.data.docs_nav | where_exp: "s", "s.lang == nil or s.lang == site.lang" %}
       {% for s in sections %}
       {% assign icon = icons[forloop.index0] %}
