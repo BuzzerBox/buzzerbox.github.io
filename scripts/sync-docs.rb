@@ -1,13 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Copies the documentation of BuzzerBox (formerly BuzzUI) and BuzzController into the site.
+# Copies the documentation of BuzzerBox (formerly BuzzUI) into the site.
 #
-#   ruby scripts/sync-docs.rb [BUZZERBOX_DIR] [BUZZCONTROLLER_DIR]
+#   ruby scripts/sync-docs.rb [BUZZERBOX_DIR]
 #
-# The directories default to $BUZZERBOX_DIR / $BUZZCONTROLLER_DIR, then to ../BuzzerBox (or ../BuzzUI, a checkout
-# from before the rename) and ../BuzzController.
-# $BUZZERBOX_REF / $BUZZCONTROLLER_REF name the branch the checkouts are on (default main); links to GitHub use it.
+# The directory defaults to $BUZZERBOX_DIR, then to ../BuzzerBox (or ../BuzzUI, a checkout from before the rename).
+# $BUZZERBOX_REF names the branch the checkout is on (default main); links to GitHub use it.
 #
 # A page or image folder that is missing in a checkout is skipped with a warning, so a doc that isn't merged yet
 # doesn't break the deploy; links to it then go to GitHub.
@@ -39,11 +38,6 @@ REPOS = {
       File.join(SITE, "..", "BuzzerBox"),
     url: "https://github.com/BuzzerBox/BuzzerBox",
     ref: ENV.fetch("BUZZERBOX_REF", "").then { |r| r.empty? ? "main" : r }
-  },
-  "BuzzController" => {
-    dir: ARGV[1] || ENV["BUZZCONTROLLER_DIR"] || File.join(SITE, "..", "BuzzController"),
-    url: "https://github.com/BuzzerBox/BuzzController",
-    ref: ENV.fetch("BUZZCONTROLLER_REF", "").then { |r| r.empty? ? "main" : r }
   }
 }.freeze
 
@@ -93,7 +87,6 @@ SECTIONS = {
   "hardware" => {
     title: "Hardware & firmware",
     pages: [
-      ["BuzzController", "README.md", "docs/hardware/controller.md", "Controller board"],
       ["BuzzerBox", "firmware/wireless-buzzer/README.md", "docs/hardware/wireless-buzzer.md"]
     ]
   }
@@ -101,8 +94,7 @@ SECTIONS = {
 
 # Image folders that are copied as they are: [repo, source dir, site dir]
 IMAGE_DIRS = [
-  ["BuzzerBox", "docs/user/images", "docs/user/images"],
-  ["BuzzController", "docs/images", "docs/hardware/images"]
+  ["BuzzerBox", "docs/user/images", "docs/user/images"]
 ].freeze
 
 # Sections (by "## Heading") that are left out of the site; delete an entry to show that section again.

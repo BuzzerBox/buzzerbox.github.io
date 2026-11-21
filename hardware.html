@@ -49,18 +49,14 @@ description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wire
 <section class="section" id="build">
   <div class="container">
     <p class="eyebrow">Build your own</p>
-    <h2>Design files and firmware</h2>
-    <p class="sub">Schematics and boards in EAGLE and KiCad, the panel in Fusion 360, and all firmware are in the
-      <a href="{{ site.repos.controller }}">BuzzController</a> repository.</p>
+    <h2>Firmware and the box image</h2>
+    <p class="sub">The firmware of the wireless buzzers and the image of the box are in the
+      <a href="{{ site.repos.ui }}">BuzzerBox</a> repository.</p>
     <div class="grid">
-      <a class="card" href="{{ '/docs/hardware/controller.html' | relative_url }}">{% include icon.html name="chip" %}<h3>Controller firmware</h3>
-        <p>The serial protocol, building and flashing with PlatformIO and an AVR ISP programmer.</p></a>
       <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
         <p>How it behaves, its lights, the UDP protocol, and flashing a Feather V2 or ESP32-S3.</p></a>
       <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}">{% include icon.html name="code" %}<h3>Provisioning a box</h3>
         <p>Building the Raspberry Pi image, flashing it, and box settings such as <code>ANALOG_BUZZERS</code>.</p></a>
-      <a class="card" href="{{ site.repos.controller }}/tree/main/cad">{% include icon.html name="edit" %}<h3>CAD files</h3>
-        <p>Schematics and boards in EAGLE and KiCad, and the Fusion 360 panel, on GitHub.</p></a>
     </div>
   </div>
 </section>

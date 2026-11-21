@@ -13,7 +13,6 @@ contact_email: buzzerbox@goeffel.rip
 
 repos:
   ui: https://github.com/BuzzerBox/BuzzerBox
-  controller: https://github.com/BuzzerBox/BuzzController
   site: https://github.com/BuzzerBox/buzzerbox.github.io
 
 markdown: kramdown

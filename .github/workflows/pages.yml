@@ -3,7 +3,7 @@ name: Build and deploy
 on:
   push:
     branches: [main]
-  # Pick up doc changes in BuzzerBox and BuzzController: daily, by hand, or when one of them sends a
+  # Pick up doc changes in BuzzerBox: daily, by hand, or when it sends a
   # repository_dispatch of type "docs-updated" (see README.md).
   schedule:
     - cron: "17 4 * * *"
@@ -24,7 +24,6 @@ concurrency:
 # so they must exist.
 env:
   BUZZERBOX_REF: main
-  BUZZCONTROLLER_REF: main
 
 jobs:
   build:
@@ -37,11 +36,6 @@ jobs:
           repository: BuzzerBox/BuzzerBox
           ref: ${{ env.BUZZERBOX_REF }}
           path: _sources/BuzzerBox
-      - uses: actions/checkout@v4
-        with:
-          repository: BuzzerBox/BuzzController
-          ref: ${{ env.BUZZCONTROLLER_REF }}
-          path: _sources/BuzzController
 
       - uses: ruby/setup-ruby@v1
         with:
@@ -49,7 +43,7 @@ jobs:
           bundler-cache: true
 
       - name: Sync the docs
-        run: ruby scripts/sync-docs.rb _sources/BuzzerBox _sources/BuzzController
+        run: ruby scripts/sync-docs.rb _sources/BuzzerBox
 
       - uses: actions/configure-pages@v5
         id: pages

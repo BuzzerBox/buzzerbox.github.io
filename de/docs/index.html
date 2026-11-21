@@ -19,8 +19,8 @@ description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und
   <div class="container">
     <p class="eyebrow">Dokumentation</p>
     <h1>Doku</h1>
-    <p>Wähle die Anleitung für das, was du vorhast. Die Doku kommt direkt aus den Repositorys
-      <a href="{{ site.repos.ui }}">BuzzerBox</a> und <a href="{{ site.repos.controller }}">BuzzController</a>.
+    <p>Wähle die Anleitung für das, was du vorhast. Die Doku kommt direkt aus dem Repository
+      <a href="{{ site.repos.ui }}">BuzzerBox</a>.
       Das Benutzerhandbuch gibt es auf Deutsch, die Doku zu Software und Hardware nur auf Englisch.</p>
   </div>
 </section>
@@ -53,7 +53,7 @@ description: Die Dokumentation der BuzzerBox für Spielleitungen, Entwickler und
       <div class="card">
         {% include icon.html name="chip" %}
         <h3>Hardware &amp; Firmware <span class="badge">Englisch</span></h3>
-        <p>Für Bastler: das Controller-Board und seine Firmware, die Funkbuzzer und ihre Protokolle.</p>
+        <p>Für Bastler: die Funkbuzzer, ihre Firmware und ihre Protokolle.</p>
         <ul style="margin:14px 0 0;padding-left:1.1em" lang="en">
           {% for p in hardware.pages %}<li><a href="{{ p.url | relative_url }}" hreflang="en">{{ p.title }}</a></li>{% endfor %}
         </ul>

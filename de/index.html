@@ -123,9 +123,9 @@ description: >-
 
 <section class="section section-alt">
   <div class="container">
-    <p class="eyebrow">Die Projekte</p>
-    <h2>Software und Hardware</h2>
-    <p class="sub">Die BuzzerBox besteht aus zwei Projekten, beide auf GitHub. Ihre Dokumentation ist auf Englisch.</p>
+    <p class="eyebrow">Open Source</p>
+    <h2>Die Software</h2>
+    <p class="sub">Die Software der BuzzerBox und die Firmware ihrer Funkbuzzer liegen auf GitHub. Ihre Dokumentation ist auf Englisch.</p>
     <div class="grid grid-2">
       <div class="card project">
         {% include icon.html name="code" %}
@@ -143,22 +143,6 @@ description: >-
           <a href="{{ site.repos.ui }}">Repository</a>
           <a href="{{ '/docs/developer/architecture.html' | relative_url }}" hreflang="en">Architektur</a>
           <a href="{{ '/docs/developer/development.html' | relative_url }}" hreflang="en">Entwicklungsumgebung</a>
-        </div>
-      </div>
-      <div class="card project">
-        {% include icon.html name="chip" %}
-        <h3>BuzzController</h3>
-        <span class="tag">ATmega328P · EAGLE / KiCad</span>
-        <p>Die Hardware: das Controller-Board mit dem Compute Module, die XLR-Platine und die Frontplatte und die Firmware,
-          die den ersten Buzzer sperrt.</p>
-        <ul>
-          <li>10 Buzzer mit LEDs, eine 7-Segment-Anzeige und ein Freigabe-Taster</li>
-          <li>Serielles Protokoll mit Heartbeat zum Raspberry Pi</li>
-        </ul>
-        <div class="links">
-          <a href="{{ site.repos.controller }}">Repository</a>
-          <a href="{{ '/de/hardware/' | relative_url }}">Hardware-Versionen</a>
-          <a href="{{ '/docs/hardware/controller.html' | relative_url }}" hreflang="en">Firmware-Doku</a>
         </div>
       </div>
     </div>

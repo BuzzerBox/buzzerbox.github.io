@@ -1,7 +1,7 @@
 # buzzerbox.github.io
 
 The website of the BuzzerBox: a showcase of the project (landing page, hardware versions, use cases) and the
-documentation of [BuzzerBox](https://github.com/BuzzerBox/BuzzerBox) and [BuzzController](https://github.com/BuzzerBox/BuzzController).
+documentation of [BuzzerBox](https://github.com/BuzzerBox/BuzzerBox).
 Built with Jekyll 4 and deployed to GitHub Pages by a GitHub Action.
 
 ## Where the content lives
@@ -14,21 +14,21 @@ Built with Jekyll 4 and deployed to GitHub Pages by a GitHub Action.
 | Events and the contact form | `events.html`, `de/veranstaltungen.html`, `_includes/contact-form.html`; the address is `contact_email` in `_config.yml` |
 | Docs hub | `docs/index.html` |
 | Look | `assets/css/site.css`, `_layouts/`, `_includes/` |
-| The docs themselves | **in BuzzerBox and BuzzController**, not here |
+| The docs themselves | **in BuzzerBox**, not here |
 
-`scripts/sync-docs.rb` copies the docs from both repositories into `docs/user/`, `docs/developer/` and
+`scripts/sync-docs.rb` copies the docs from BuzzerBox into `docs/user/`, `docs/developer/` and
 `docs/hardware/`, rewrites their links and writes the sidebar (`_data/docs_nav.yml`). Those files are generated and
 ignored by git. To add or reorder a doc page, edit `SECTIONS` in that script.
 
 ## Preview
 
-With Docker, and BuzzerBox and BuzzController checked out next to this repository:
+With Docker, and BuzzerBox checked out next to this repository:
 
 ```sh
 scripts/serve.sh        # http://localhost:4000
 ```
 
-With Ruby 3.x: `bundle install`, `ruby scripts/sync-docs.rb ../BuzzerBox ../BuzzController`, `bundle exec jekyll serve`.
+With Ruby 3.x: `bundle install`, `ruby scripts/sync-docs.rb ../BuzzerBox`, `bundle exec jekyll serve`.
 
 ## Deployment
 
@@ -36,11 +36,11 @@ With Ruby 3.x: `bundle install`, `ruby scripts/sync-docs.rb ../BuzzerBox ../Buzz
 on a `repository_dispatch` of type `docs-updated`. In the repository settings, *Pages → Source* has to be
 **GitHub Actions**.
 
-The docs come from the branches set in `env` at the top of the workflow (`BUZZERBOX_REF`, `BUZZCONTROLLER_REF`).
+The docs come from the branches set in `env` at the top of the workflow (`BUZZERBOX_REF`).
 A page or image folder missing on that branch is skipped with a warning in the build log, and links to it go to
 GitHub instead.
 
-To publish doc changes right away, BuzzerBox and BuzzController can trigger a build when their docs change, with a
+To publish doc changes right away, BuzzerBox can trigger a build when its docs change, with a
 token that may dispatch to this repository:
 
 ```sh
