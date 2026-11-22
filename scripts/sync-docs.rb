@@ -87,6 +87,8 @@ SECTIONS = {
   "hardware" => {
     title: "Hardware & firmware",
     pages: [
+      ["BuzzerBox", "hardware/compact-box/README.md", "docs/hardware/compact-case.md", "Compact case"],
+      ["BuzzerBox", "hardware/wireless-buzzer/README.md", "docs/hardware/buzzer-case.md", "Wireless buzzer case"],
       ["BuzzerBox", "firmware/wireless-buzzer/README.md", "docs/hardware/wireless-buzzer.md"]
     ]
   }

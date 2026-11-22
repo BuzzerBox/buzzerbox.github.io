@@ -50,10 +50,16 @@ description: Die BuzzerBox Compact, Classic und Pro und die Buzzer Analog, Wirel
 <section class="section" id="build">
   <div class="container">
     <p class="eyebrow">Selbst bauen</p>
-    <h2>Firmware und das Image der Box</h2>
-    <p class="sub">Die Firmware der Funkbuzzer und das Image der Box liegen im Repository
-      <a href="{{ site.repos.ui }}">BuzzerBox</a>. Die Dokumentation ist auf Englisch.</p>
+    <h2>Gehäuse, Firmware und das Image der Box</h2>
+    <p class="sub">Die 3D-gedruckten Gehäuse der BuzzerBox Compact und ihrer Funkbuzzer, deren Firmware und das Image der
+      Box liegen im Repository <a href="{{ site.repos.ui }}">BuzzerBox</a>. Die Dokumentation ist auf Englisch.</p>
     <div class="grid">
+      <a class="card" href="{{ '/docs/hardware/compact-case.html' | relative_url }}" hreflang="en">{% include icon.html name="box" %}<h3>Gehäuse der Compact</h3>
+        <p>Die Wanne für ein CM4 oder CM5 und der Deckel mit dem 10"-Touch-Display 2: was gedruckt wird, die Teile und die Schrauben.</p></a>
+      <a class="card" href="{{ '/docs/hardware/buzzer-case.html' | relative_url }}" hreflang="en">{% include icon.html name="buzzer" %}<h3>Gehäuse des Funkbuzzers</h3>
+        <p>Der gedruckte Sockel unter dem Pilztaster von Giovenzana, mit dem Feather und dem Akku.</p></a>
+      <a class="card" href="{{ site.repos.ui }}/tree/main/hardware">{% include icon.html name="edit" %}<h3>CAD-Dateien</h3>
+        <p>Fusion-, STEP-, 3MF- und STL-Dateien beider Gehäuse, auf GitHub.</p></a>
       <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}" hreflang="en">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
         <p>Wie er sich verhält, seine Lichter, das UDP-Protokoll und das Flashen eines Feather V2 oder ESP32-S3.</p></a>
       <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}" hreflang="en">{% include icon.html name="code" %}<h3>Eine Box einrichten</h3>

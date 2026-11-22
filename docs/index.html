@@ -16,7 +16,7 @@ description: The BuzzerBox documentation for hosts, developers and hardware buil
   <div class="container">
     <div class="grid">
       {% assign icons = "book,code,chip" | split: "," %}
-      {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzerBox on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the wireless buzzers, their firmware and their protocols." | split: "|" %}
+      {% assign blurbs = "For hosts: set up the box, run a game, create games and fix problems. No technical knowledge needed.|For developers: run BuzzerBox on your computer, its architecture, configuration, file formats, releases and the box image.|For builders: the 3D-printed cases, the wireless buzzers' firmware and their protocols." | split: "|" %}
       {% assign sections = site.data.docs_nav | where_exp: "s", "s.lang == nil or s.lang == site.lang" %}
       {% for s in sections %}
       {% assign icon = icons[forloop.index0] %}

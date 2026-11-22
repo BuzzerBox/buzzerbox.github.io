@@ -49,10 +49,16 @@ description: The BuzzerBox Compact, Classic and Pro, and the Buzzer Analog, Wire
 <section class="section" id="build">
   <div class="container">
     <p class="eyebrow">Build your own</p>
-    <h2>Firmware and the box image</h2>
-    <p class="sub">The firmware of the wireless buzzers and the image of the box are in the
-      <a href="{{ site.repos.ui }}">BuzzerBox</a> repository.</p>
+    <h2>Cases, firmware and the box image</h2>
+    <p class="sub">The 3D-printed cases of the BuzzerBox Compact and its wireless buzzers, their firmware and the image of
+      the box are in the <a href="{{ site.repos.ui }}">BuzzerBox</a> repository.</p>
     <div class="grid">
+      <a class="card" href="{{ '/docs/hardware/compact-case.html' | relative_url }}">{% include icon.html name="box" %}<h3>Compact case</h3>
+        <p>The tray for a CM4 or CM5 and the top with the 10" Touch Display 2: what to print, the parts and the screws.</p></a>
+      <a class="card" href="{{ '/docs/hardware/buzzer-case.html' | relative_url }}">{% include icon.html name="buzzer" %}<h3>Wireless buzzer case</h3>
+        <p>The printed base under the Giovenzana mushroom button, with the Feather and the battery.</p></a>
+      <a class="card" href="{{ site.repos.ui }}/tree/main/hardware">{% include icon.html name="edit" %}<h3>CAD files</h3>
+        <p>Fusion, STEP, 3MF and STL files of both cases, on GitHub.</p></a>
       <a class="card" href="{{ '/docs/hardware/wireless-buzzer.html' | relative_url }}">{% include icon.html name="wifi" %}<h3>Buzzer Wireless</h3>
         <p>How it behaves, its lights, the UDP protocol, and flashing a Feather V2 or ESP32-S3.</p></a>
       <a class="card" href="{{ '/docs/developer/provisioning.html' | relative_url }}">{% include icon.html name="code" %}<h3>Provisioning a box</h3>
